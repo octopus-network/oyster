@@ -16,6 +16,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/server/config"
 	servertypes "github.com/cosmos/cosmos-sdk/server/types"
 	"github.com/cosmos/cosmos-sdk/simapp"
+	"github.com/cosmos/cosmos-sdk/std"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 	"github.com/cosmos/cosmos-sdk/version"
@@ -659,4 +660,17 @@ func initParamsKeeper(appCodec codec.BinaryCodec, legacyAmino *codec.LegacyAmino
 // SimulationManager implements the SimulationApp interface
 func (app *App) SimulationManager() *module.SimulationManager {
 	return app.sm
+}
+
+// MakeTestEncodingConfig creates an EncodingConfig for testing. This function
+// should be used only in tests or when creating a new app instance (NewApp*()).
+// App user shouldn't create new codecs - use the app.AppCodec instead.
+// [DEPRECATED]
+func MakeTestEncodingConfig() appparams.EncodingConfig {
+	encodingConfig := appparams.MakeTestEncodingConfig()
+	std.RegisterLegacyAminoCodec(encodingConfig.Amino)
+	std.RegisterInterfaces(encodingConfig.InterfaceRegistry)
+	ModuleBasics.RegisterLegacyAminoCodec(encodingConfig.Amino)
+	ModuleBasics.RegisterInterfaces(encodingConfig.InterfaceRegistry)
+	return encodingConfig
 }
