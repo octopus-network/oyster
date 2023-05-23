@@ -237,15 +237,9 @@ func New(
 	app.AuthzKeeper = authzkeeper.NewKeeper(
 		keys[authz.ModuleName], appCodec, app.MsgServiceRouter(),
 	)
-	// Remove the fee-pool from the group of blocked recipient addresses in bank
-	// this is required for the consumer chain to be able to send tokens to
-	// the provider chain
-	bankBlockedAddrs := app.ModuleAccountAddrs()
-	delete(bankBlockedAddrs, authtypes.NewModuleAddress(
-		ccvconsumertypes.ConsumerToSendToProviderName).String())
 
 	app.BankKeeper = bankkeeper.NewBaseKeeper(
-		appCodec, keys[banktypes.StoreKey], app.AccountKeeper, app.GetSubspace(banktypes.ModuleName), bankBlockedAddrs,
+		appCodec, keys[banktypes.StoreKey], app.AccountKeeper, app.GetSubspace(banktypes.ModuleName), app.ModuleAccountAddrs(),
 	)
 
 	// consumer keeper satisfies the staking keeper interface
