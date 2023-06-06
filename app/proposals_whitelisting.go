@@ -44,7 +44,7 @@ func getParamChangesMapFromArray(paramChanges []proposal.ParamChange) map[ParamC
 }
 
 func isParamChangeWhitelisted(paramChanges map[ParamChangeKey]struct{}) bool {
-	for paramChangeKey, _ := range paramChanges {
+	for paramChangeKey := range paramChanges {
 		_, found := WhitelistedParams[paramChangeKey]
 		if !found {
 			return false
