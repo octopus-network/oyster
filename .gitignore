@@ -4,3 +4,11 @@ release/
 .idea/
 .vscode/
 .DS_Store
+
+# Build
+build
+
+
+# Local docker volume mappings
+.oyster
+.testnets
