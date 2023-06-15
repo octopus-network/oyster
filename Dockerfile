@@ -23,7 +23,6 @@ RUN apt-get update && apt-get install -y jq
 
 # Copy over binaries from the build-env
 COPY --from=build-env /go/src/github.com/octopus-network/oyster/build/oysterd /
-COPY --from=build-env /go/src/github.com/octopus-network/oyster/scripts/multi-node-start.sh /
 
 EXPOSE 26656 26657 1317 9090 8545 8546
 

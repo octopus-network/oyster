@@ -357,6 +357,9 @@ func initTestnetFiles(
 		srvconfig.WriteConfigFile(filepath.Join(nodeDir, "config/app.toml"), appConfig)
 	}
 
+	cmd.PrintErrf("chainID %s\n", args.chainID)
+	cmd.PrintErrf("BaseDenom %s\n", cmdcfg.BaseDenom)
+
 	if err := initGenFiles(clientCtx, mbm, args.chainID, cmdcfg.BaseDenom, genAccounts, genBalances, genFiles, args.numValidators); err != nil {
 		return err
 	}

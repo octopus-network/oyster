@@ -9,7 +9,7 @@ services:
     volumes:
       - ./build/node0/oysterd:/oyster:Z
     command:
-      - ./multi-node-start.sh  
+      - /oysterd start --home /oyster 
     networks:
       localnet:
         ipv4_address: 192.167.10.2
@@ -22,7 +22,7 @@ services:
     volumes:
       - ./build/node1/oysterd:/oyster:Z
     command:
-      - ./multi-node-start.sh
+      - /oysterd start --home /oyster
     networks:
       localnet:
         ipv4_address: 192.167.10.3
@@ -35,7 +35,7 @@ services:
     volumes:
       - ./build/node2/oysterd:/oyster:Z
     command:
-      - ./multi-node-start.sh
+      - /oysterd start --home /oyster
     networks:
       localnet:
         ipv4_address: 192.167.10.4
@@ -48,7 +48,7 @@ services:
     volumes:
       - ./build/node3/oysterd:/oyster:Z
     command:
-      - ./multi-node-start.sh
+      - /oysterd start --home /oyster
     networks:
       localnet:
         ipv4_address: 192.167.10.5
