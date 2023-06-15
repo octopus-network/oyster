@@ -5,15 +5,19 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/server"
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
-	app "github.com/octopus-network/interchain-security/app/consumer"
+	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/octopus-network/oyster/cmd/oysterd/cmd"
+	cmdcfg "oyster/cmd/config"
+
+	"oyster/app"
 )
 
 func main() {
-	rootCmd, _ := cmd.NewRootCmd()
+	setupConfig()
+	cmdcfg.RegisterDenoms()
 
-	if err := svrcmd.Execute(rootCmd, app.DefaultNodeHome); err != nil {
+	rootCmd, _ := NewRootCmd()
+	if err := svrcmd.Execute(rootCmd, "", app.DefaultNodeHome); err != nil {
 		switch e := err.(type) {
 		case server.ErrorCode:
 			os.Exit(e.Code)
@@ -22,4 +26,12 @@ func main() {
 			os.Exit(1)
 		}
 	}
+}
+
+func setupConfig() {
+	// set the address prefixes
+	config := sdk.GetConfig()
+	cmdcfg.SetBech32Prefixes(config)
+	cmdcfg.SetBip44CoinType(config)
+	config.Seal()
 }
