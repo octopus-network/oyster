@@ -13,13 +13,21 @@ jobs:
     name: golangci-lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
       - uses: actions/setup-go@v4
         with:
           skip-pkg-cache: true
-          go-version: "1.19"
-      - uses: golangci/golangci-lint-action@v3
+          go-version: "1.20"    
+      - uses: actions/checkout@v3
+      - uses: technote-space/get-diff-action@v6.1.2
+        with:
+          PATTERNS: |
+            **/**.go
+            go.mod
+            go.sum
+      - uses: golangci/golangci-lint-action@v3.6.0
         with:
           skip-pkg-cache: true
           args: --timeout=3m
-          version: v1.52.2          
+          version: latest
+        # Check only if there are differences in the source code
+        if: "env.GIT_DIFF"                    
