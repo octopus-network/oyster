@@ -6,10 +6,11 @@ services:
     image: "oyster/node"
     ports:
       - "26656-26657:26656-26657"
+      - "8545-8546:8545-8546"
     volumes:
       - ./build/node0/oysterd:/oyster:Z
     command:
-      - /oysterd start --home /oyster 
+      - /oysterd start --json-rpc.address="0.0.0.0:8545" --json-rpc.ws-address="0.0.0.0:8546" --home /oyster 
     networks:
       localnet:
         ipv4_address: 192.167.10.2
