@@ -1,51 +1,24 @@
 package app
 
 import (
-	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
-	distrtypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
-	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
+	"github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 	"github.com/cosmos/cosmos-sdk/x/params/types/proposal"
-	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
-	icahosttypes "github.com/cosmos/ibc-go/v4/modules/apps/27-interchain-accounts/host/types"
-
-	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
+	ibctransfertypes "github.com/cosmos/ibc-go/v7/modules/apps/transfer/types"
 )
 
-type ParamChangeKey struct {
-	MsgType string
-	Key     string
-}
-
-func IsProposalWhitelisted(content govtypes.Content) bool {
+func IsProposalWhitelisted(content v1beta1.Content) bool {
 	switch c := content.(type) {
 	case *proposal.ParameterChangeProposal:
-		return isParamChangeWhitelisted(getParamChangesMapFromArray(c.Changes))
-	case *upgradetypes.SoftwareUpgradeProposal,
-		*upgradetypes.CancelSoftwareUpgradeProposal:
-		return true
+		return isLegacyParamChangeWhitelisted(c.Changes)
 
 	default:
 		return false
 	}
 }
 
-func getParamChangesMapFromArray(paramChanges []proposal.ParamChange) map[ParamChangeKey]struct{} {
-	res := map[ParamChangeKey]struct{}{}
+func isLegacyParamChangeWhitelisted(paramChanges []proposal.ParamChange) bool {
 	for _, paramChange := range paramChanges {
-		key := ParamChangeKey{
-			MsgType: paramChange.Subspace,
-			Key:     paramChange.Key,
-		}
-
-		res[key] = struct{}{}
-	}
-
-	return res
-}
-
-func isParamChangeWhitelisted(paramChanges map[ParamChangeKey]struct{}) bool {
-	for paramChangeKey := range paramChanges {
-		_, found := WhitelistedParams[paramChangeKey]
+		_, found := LegacyWhitelistedParams[legacyParamChangeKey{Subspace: paramChange.Subspace, Key: paramChange.Key}]
 		if !found {
 			return false
 		}
@@ -53,25 +26,26 @@ func isParamChangeWhitelisted(paramChanges map[ParamChangeKey]struct{}) bool {
 	return true
 }
 
-var WhitelistedParams = map[ParamChangeKey]struct{}{
-	// bank
-	{MsgType: banktypes.ModuleName, Key: string(banktypes.KeySendEnabled)}: {},
-	// governance
-	// {MsgType: govtypes.ModuleName, Key: string(govtypes.ParamStoreKeyDepositParams)}: {}, //min_deposit, max_deposit_period
-	// {MsgType: govtypes.ModuleName, Key: string(govtypes.ParamStoreKeyVotingParams)}:  {}, //voting_period
-	// {MsgType: govtypes.ModuleName, Key: string(govtypes.ParamStoreKeyTallyParams)}:   {}, //quorum,threshold,veto_threshold
-	// staking
-	{MsgType: stakingtypes.ModuleName, Key: string(stakingtypes.KeyUnbondingTime)}:     {},
-	{MsgType: stakingtypes.ModuleName, Key: string(stakingtypes.KeyMaxValidators)}:     {},
-	{MsgType: stakingtypes.ModuleName, Key: string(stakingtypes.KeyMaxEntries)}:        {},
-	{MsgType: stakingtypes.ModuleName, Key: string(stakingtypes.KeyHistoricalEntries)}: {},
-	{MsgType: stakingtypes.ModuleName, Key: string(stakingtypes.KeyBondDenom)}:         {},
-	// distribution
-	{MsgType: distrtypes.ModuleName, Key: string(distrtypes.ParamStoreKeyCommunityTax)}: {},
-	// {MsgType: distrtypes.ModuleName, Key: string(distrtypes.ParamStoreKeyBaseProposerReward)}:  {},
-	// {MsgType: distrtypes.ModuleName, Key: string(distrtypes.ParamStoreKeyBonusProposerReward)}: {},
-	{MsgType: distrtypes.ModuleName, Key: string(distrtypes.ParamStoreKeyWithdrawAddrEnabled)}: {},
-	// ica
-	{MsgType: icahosttypes.SubModuleName, Key: string(icahosttypes.KeyHostEnabled)}:   {},
-	{MsgType: icahosttypes.SubModuleName, Key: string(icahosttypes.KeyAllowMessages)}: {},
+type legacyParamChangeKey struct {
+	Subspace, Key string
+}
+
+var LegacyWhitelistedParams = map[legacyParamChangeKey]struct{}{
+	// ibc transfer
+	{Subspace: ibctransfertypes.ModuleName, Key: "SendEnabled"}:    {},
+	{Subspace: ibctransfertypes.ModuleName, Key: "ReceiveEnabled"}: {},
+	// add interchain account params(HostEnabled, AllowedMessages) once the module is added to the consumer app
+}
+
+var WhiteListModule = map[string]struct{}{
+	"/cosmos.gov.v1.MsgUpdateParams":               {},
+	"/cosmos.bank.v1beta1.MsgUpdateParams":         {},
+	"/cosmos.staking.v1beta1.MsgUpdateParams":      {},
+	"/cosmos.distribution.v1beta1.MsgUpdateParams": {},
+	"/cosmos.mint.v1beta1.MsgUpdateParams":         {},
+}
+
+func IsModuleWhiteList(typeUrl string) bool {
+	_, found := WhiteListModule[typeUrl]
+	return found
 }
