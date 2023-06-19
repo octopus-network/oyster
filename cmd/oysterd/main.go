@@ -5,15 +5,14 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/server"
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
-	app "github.com/octopus-network/interchain-security/app/consumer"
 
-	"github.com/octopus-network/oyster/cmd/oysterd/cmd"
+	"oyster/app"
+	"oyster/cmd/oysterd/cmd"
 )
 
 func main() {
 	rootCmd, _ := cmd.NewRootCmd()
-
-	if err := svrcmd.Execute(rootCmd, app.DefaultNodeHome); err != nil {
+	if err := svrcmd.Execute(rootCmd, "", app.DefaultNodeHome); err != nil {
 		switch e := err.(type) {
 		case server.ErrorCode:
 			os.Exit(e.Code)
