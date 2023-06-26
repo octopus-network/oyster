@@ -134,9 +134,10 @@ localnet-build: localnet-clean
 	docker build --no-cache --tag oyster/node -f Dockerfile .
 
 # Start a 4-node testnet locally
-localnet-start: localnet-stop localnet-build
-	@if ! [ -f build/node0/$(OYSTER_BINARY)/config/genesis.json ]; then docker run --rm -v $(CURDIR)/build:/oyster:Z oyster/node "./oysterd testnet init-files --v 4 -o /oyster --keyring-backend=test --starting-ip-address 192.167.10.2"; fi
-	docker compose up -d
+localnet-start: localnet-stop localnet-build build
+	@if ! [ -f build/node0/$(OYSTER_BINARY)/config/genesis.json ]; then docker run --rm -v $(CURDIR)/build:/oyster:Z oyster/node "./oysterd testnet init-files --v 3 -o /oyster --keyring-backend=test --starting-ip-address 192.167.10.2"; fi; \
+  scripts/setup_genesis.sh; \
+  docker compose up -d;
 
 # Stop testnet
 localnet-stop:
