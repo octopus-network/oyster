@@ -93,7 +93,7 @@ func addTestnetFlagsToCmd(cmd *cobra.Command) {
 	cmd.Flags().Int(flagNumValidators, 4, "Number of validators to initialize the testnet with")
 	cmd.Flags().StringP(flagOutputDir, "o", "./.testnets", "Directory to store initialization data for the testnet")
 	cmd.Flags().String(flags.FlagChainID, "oyster_9100-1", "genesis file chain-id, if left blank will be randomly created")
-	cmd.Flags().String(sdkserver.FlagMinGasPrices, fmt.Sprintf("0.000006%s", cmdcfg.BaseDenom), "Minimum gas prices to accept for transactions; All fees in a tx must meet this minimum (e.g. 0.01photino,0.001stake)")
+	cmd.Flags().String(sdkserver.FlagMinGasPrices, fmt.Sprintf("7%s", cmdcfg.BaseDenom), "Minimum gas prices to accept for transactions; All fees in a tx must meet this minimum (e.g. 0.01photino,0.001stake)")
 	cmd.Flags().String(flags.FlagKeyAlgorithm, string(hd.EthSecp256k1Type), "Key signing algorithm to generate keys for")
 }
 
@@ -216,7 +216,9 @@ func initTestnetFiles(
 	if args.chainID == "" {
 		args.chainID = fmt.Sprintf("oyster_%d-1", tmrand.Int63n(9999999999999)+1)
 	}
-
+	if args.minGasPrices == "0aoct" {
+		args.minGasPrices = fmt.Sprintf("7%s", cmdcfg.BaseDenom)
+	}
 	nodeIDs := make([]string, args.numValidators)
 	valPubKeys := make([]cryptotypes.PubKey, args.numValidators)
 
@@ -295,7 +297,7 @@ func initTestnetFiles(
 			return err
 		}
 
-		accStakingTokens := sdk.TokensFromConsensusPower(5000, evmostypes.PowerReduction)
+		accStakingTokens := sdk.TokensFromConsensusPower(5000000, evmostypes.PowerReduction)
 		coins := sdk.Coins{
 			sdk.NewCoin(cmdcfg.BaseDenom, accStakingTokens),
 		}
@@ -435,9 +437,15 @@ func initGenFiles(
 		return err
 	}
 
+	// cpGenState := *types.DefaultConsensusParams()
+	// cpGenState.Block.MaxGas = 10000000
+	// cpGenStateJSON, _ := json.MarshalIndent(cpGenState, "", "  ")
+	// fmt.Println("ConsensusParams: ", string(cpGenStateJSON))
+
 	genDoc := types.GenesisDoc{
-		ChainID:    chainID,
-		AppState:   appGenStateJSON,
+		ChainID:  chainID,
+		AppState: appGenStateJSON,
+		// ConsensusParams: &cpGenState,
 		Validators: nil,
 	}
 
