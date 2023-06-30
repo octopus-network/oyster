@@ -41,10 +41,11 @@ import (
 	"github.com/evmos/ethermint/server/config"
 	srvflags "github.com/evmos/ethermint/server/flags"
 
+	oysterkr "oyster/crypto/keyring"
+
 	evmostypes "github.com/evmos/ethermint/types"
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
-
-	oysterkr "oyster/crypto/keyring"
+	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
 
 	cmdcfg "oyster/cmd/config"
 
@@ -216,9 +217,9 @@ func initTestnetFiles(
 	if args.chainID == "" {
 		args.chainID = fmt.Sprintf("oyster_%d-1", tmrand.Int63n(9999999999999)+1)
 	}
-	if args.minGasPrices == "0aoct" {
-		args.minGasPrices = fmt.Sprintf("7%s", cmdcfg.BaseDenom)
-	}
+	// if args.minGasPrices == "0aoct" {
+	// 	args.minGasPrices = fmt.Sprintf("7%s", cmdcfg.BaseDenom)
+	// }
 	nodeIDs := make([]string, args.numValidators)
 	valPubKeys := make([]cryptotypes.PubKey, args.numValidators)
 
@@ -431,6 +432,12 @@ func initGenFiles(
 
 	evmGenState.Params.EvmDenom = coinDenom
 	appGenState[evmtypes.ModuleName] = clientCtx.Codec.MustMarshalJSON(&evmGenState)
+
+	var feemarketGenState feemarkettypes.GenesisState
+	clientCtx.Codec.MustUnmarshalJSON(appGenState[feemarkettypes.ModuleName], &feemarketGenState)
+
+	feemarketGenState.Params.NoBaseFee = true
+	appGenState[feemarkettypes.ModuleName] = clientCtx.Codec.MustMarshalJSON(&feemarketGenState)
 
 	appGenStateJSON, err := json.MarshalIndent(appGenState, "", "  ")
 	if err != nil {
