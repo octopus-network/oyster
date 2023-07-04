@@ -124,7 +124,7 @@ import (
 
 const (
 	AccountAddressPrefix = "cosmos"
-	Name                 = "oyster"
+	Name                 = "otto"
 )
 
 // this line is used by starport scaffolding # stargate/wasm/app/enabledProposals
@@ -205,7 +205,7 @@ func init() {
 		panic(err)
 	}
 
-	DefaultNodeHome = filepath.Join(userHomeDir, ".oysterd")
+	DefaultNodeHome = filepath.Join(userHomeDir, ".ottod")
 }
 
 // App extends an ABCI application, but with most of its parameters exported.

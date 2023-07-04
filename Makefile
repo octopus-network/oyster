@@ -5,15 +5,10 @@ VERSION ?= $(shell echo $(shell git describe --tags --always) | sed 's/^v//')
 TMVERSION := $(shell go list -m github.com/tendermint/tendermint | sed 's:.* ::')
 COMMIT := $(shell git log -1 --format='%H')
 LEDGER_ENABLED ?= true
-OYSTER_BINARY = oysterd
+OTTO_BINARY = ottod
 BUILDDIR ?= $(CURDIR)/build
 
 export GO111MODULE = on
-
-# Default target executed when no arguments are given to make.
-default_target: build
-
-.PHONY: default_target
 
 # process build tags
 
@@ -49,8 +44,8 @@ build_tags := $(strip $(build_tags))
 
 # process linker flags
 
-ldflags = -X github.com/cosmos/cosmos-sdk/version.Name=oyster \
-          -X github.com/cosmos/cosmos-sdk/version.AppName=$(OYSTER_BINARY) \
+ldflags = -X github.com/cosmos/cosmos-sdk/version.Name=otto \
+          -X github.com/cosmos/cosmos-sdk/version.AppName=$(OTTO_BINARY) \
           -X github.com/cosmos/cosmos-sdk/version.Version=$(VERSION) \
           -X github.com/cosmos/cosmos-sdk/version.Commit=$(COMMIT) \
           -X github.com/tendermint/tendermint/version.TMCoreSemVer=$(TMVERSION)
@@ -58,20 +53,6 @@ ldflags = -X github.com/cosmos/cosmos-sdk/version.Name=oyster \
 # DB backend selection
 ifeq (cleveldb,$(findstring cleveldb,$(COSMOS_BUILD_OPTIONS)))
   ldflags += -X github.com/cosmos/cosmos-sdk/types.DBBackend=cleveldb
-endif
-ifeq (badgerdb,$(findstring badgerdb,$(COSMOS_BUILD_OPTIONS)))
-  ldflags += -X github.com/cosmos/cosmos-sdk/types.DBBackend=badgerdb
-endif
-# handle rocksdb
-ifeq (rocksdb,$(findstring rocksdb,$(COSMOS_BUILD_OPTIONS)))
-  CGO_ENABLED=1
-  build_tags += rocksdb
-  ldflags += -X github.com/cosmos/cosmos-sdk/types.DBBackend=rocksdb
-endif
-# handle boltdb
-ifeq (boltdb,$(findstring boltdb,$(COSMOS_BUILD_OPTIONS)))
-  build_tags += boltdb
-  ldflags += -X github.com/cosmos/cosmos-sdk/types.DBBackend=boltdb
 endif
 
 # add build tags to linker flags
@@ -108,34 +89,36 @@ endif
 BUILD_TARGETS := build install
 
 build: BUILD_ARGS=-o $(BUILDDIR)/
-build-linux:
-	GOOS=linux GOARCH=amd64 LEDGER_ENABLED=false $(MAKE) build
 
 $(BUILD_TARGETS): go.sum $(BUILDDIR)/
-	CGO_ENABLED="1" go $@ $(BUILD_FLAGS) $(BUILD_ARGS) ./...
+		go $@ -mod=readonly $(BUILD_FLAGS) $(BUILD_ARGS) ./...
 
 $(BUILDDIR)/:
 	mkdir -p $(BUILDDIR)/
 
-clean:
-	rm -rf \
-    $(BUILDDIR)/ \
-    artifacts/ \
-    tmp-swagger-gen/
+build-linux: go.sum
+	LEDGER_ENABLED=false GOOS=linux GOARCH=amd64 $(MAKE) build
 
-.PHONY: clean build
+go.sum: go.mod
+	@echo "--> Ensure dependencies have not been modified"
+	@go mod verify
+
+clean:
+	rm -rf $(BUILDDIR)/ artifacts/
+
+.PHONY: build clean
 
 ###############################################################################
 ###                                Localnet                                 ###
 ###############################################################################
 
 # Build image for a local testnet
-localnet-build: localnet-clean
-	docker build --no-cache --tag oyster/node -f Dockerfile .
+localnet-build:
+	docker build --no-cache --tag otto/node -f Dockerfile .
 
 # Start a 4-node testnet locally
-localnet-start: localnet-stop build localnet-build
-	@if ! [ -f build/node0/$(OYSTER_BINARY)/config/genesis.json ]; then docker run --rm -v $(CURDIR)/build:/oyster:Z oyster/node "./oysterd testnet init-files --v 3 -o /oyster --keyring-backend=test --starting-ip-address 192.167.10.2"; fi; \
+localnet-start: localnet-clean build-linux localnet-build
+	@if ! [ -f build/node0/$(OTTO_BINARY)/config/genesis.json ]; then docker run --rm -v $(CURDIR)/build:/otto:Z otto/node "./ottod testnet init-files --v 3 -o /otto --keyring-backend=test --starting-ip-address 192.167.10.2"; fi; \
   scripts/setup_genesis.sh; \
   docker compose up -d;
 
@@ -151,5 +134,3 @@ localnet-clean:
 # Show logs
 localnet-show-logstream:
 	docker compose logs --tail=1000 -f
-
-.PHONY: localnet-build localnet-start localnet-stop

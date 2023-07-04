@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CHAIN="oyster"
+CHAIN="otto"
 # set denom
 DENOM="aoct"
 CHAINID="$CHAIN"_9100-1
@@ -11,8 +11,8 @@ KEY="orchestrator"
 MNEMONIC="stumble tilt business detect father ticket major inner awake jeans name vibrant tribe pause crunch sad wine muscle hidden pumpkin inject segment rocket silver"
 
 BUILD_DIR=$(pwd)/build
-CHAIND=$BUILD_DIR/oysterd
-DATA_DIR=$BUILD_DIR/node3/oysterd
+CHAIND=$BUILD_DIR/ottod
+DATA_DIR=$BUILD_DIR/node3/ottod
 CONF_DIR=$DATA_DIR/config
 GENESIS=$CONF_DIR/genesis.json
 TEMP_GENESIS=$CONF_DIR/tmp_genesis.json
@@ -66,14 +66,14 @@ $CHAIND validate-genesis --home $DATA_DIR
 
 echo "- Distribute final genesis.json to all validators"
 for i in $(ls $BUILD_DIR | grep 'node');do
-    cp $GENESIS $BUILD_DIR/$i/oysterd/config/genesis.json
+    cp $GENESIS $BUILD_DIR/$i/ottod/config/genesis.json
     [ $? -eq 0 ] && echo "$i: genesis updated successfully" || echo "$i: genesis update failed"
-    cp $CONF_DIR/client.toml $BUILD_DIR/$i/oysterd/config/client.toml
+    cp $CONF_DIR/client.toml $BUILD_DIR/$i/ottod/config/client.toml
 done
 
 echo "copy config.toml to get the seeds"
-cp $BUILD_DIR/node0/oysterd/config/config.toml $CONFIG
+cp $BUILD_DIR/node0/ottod/config/config.toml $CONFIG
 sed -i.bak 's/moniker = \"node0\"/moniker = \"orchestrator\"/g' $CONFIG
 
 echo "copy app.toml to have same config on all nodes"
-cp $BUILD_DIR/node0/oysterd/config/app.toml $CONF_DIR/app.toml
+cp $BUILD_DIR/node0/ottod/config/app.toml $CONF_DIR/app.toml

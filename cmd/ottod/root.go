@@ -42,7 +42,7 @@ import (
 	cmdcfg "oyster/cmd/config"
 )
 
-const EnvPrefix = "OYSTER"
+const EnvPrefix = "OTTO"
 
 // NewRootCmd creates a new root command for a Cosmos SDK application
 func NewRootCmd() (*cobra.Command, params.EncodingConfig) {
@@ -63,7 +63,7 @@ func NewRootCmd() (*cobra.Command, params.EncodingConfig) {
 
 	rootCmd := &cobra.Command{
 		Use:   app.Name + "d",
-		Short: "Start oyster node",
+		Short: "Start otto node",
 		PersistentPreRunE: func(cmd *cobra.Command, _ []string) error {
 			// set the default command outputs
 			cmd.SetOut(cmd.OutOrStdout())

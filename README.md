@@ -1,6 +1,6 @@
-# oyster
+# OttoChain
 
-**oyster** is a EVM chain based on Ethermint, it's built using the Cosmos SDK which runs on top of the Tendermint Core consensus engine.
+**OttoChain** is a scalable PoS blockchain that is fully compatible and interoperable with the EVM. It is built using the Cosmos SDK which runs on top of the CometBFT consensus engine, to accomplish fast finality, high transaction throughput and short block times (~2 seconds).
 
 ## Run Multi Node
 
@@ -21,7 +21,7 @@ make localnet-show-logstream
 You can also watch logs via Docker with the `-f` flag, for example:
 
 ```bash
-docker logs -f oysternode0
+docker logs -f ottonode0
 ```
 
 ### Interact with the Localnet

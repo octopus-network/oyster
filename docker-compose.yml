@@ -2,54 +2,54 @@ version: '3'
 
 services:
   node0:
-    container_name: oysternode0
-    image: "oyster/node"
+    container_name: ottonode0
+    image: "otto/node"
     ports:
       - "26666-26667:26656-26657"
       - "8545-8546:8545-8546"
     volumes:
-      - ./build/node0/oysterd:/oyster:Z
+      - ./build/node0/ottod:/otto:Z
     command:
-      - /oysterd start --json-rpc.address="0.0.0.0:8545" --json-rpc.ws-address="0.0.0.0:8546" --json-rpc.api="eth,web3,net,txpool" --home /oyster 
+      - /ottod start --json-rpc.address="0.0.0.0:8545" --json-rpc.ws-address="0.0.0.0:8546" --json-rpc.api="eth,web3,net,txpool" --home /otto 
     networks:
       localnet:
         ipv4_address: 192.167.10.2
 
   node1:
-    container_name: oysternode1
-    image: "oyster/node"
+    container_name: ottonode1
+    image: "otto/node"
     ports:
       - "26659-26660:26656-26657"
     volumes:
-      - ./build/node1/oysterd:/oyster:Z
+      - ./build/node1/ottod:/otto:Z
     command:
-      - /oysterd start --home /oyster
+      - /ottod start --home /otto
     networks:
       localnet:
         ipv4_address: 192.167.10.3
 
   node2:
-    container_name: oysternode2
-    image: "oyster/node"
+    container_name: ottonode2
+    image: "otto/node"
     ports:
       - "26661-26662:26656-26657"
     volumes:
-      - ./build/node2/oysterd:/oyster:Z
+      - ./build/node2/ottod:/otto:Z
     command:
-      - /oysterd start --home /oyster
+      - /ottod start --home /otto
     networks:
       localnet:
         ipv4_address: 192.167.10.4
 
   node3:
-    container_name: oysternode3
-    image: "oyster/node"
+    container_name: ottonode3
+    image: "otto/node"
     ports:
       - "26663-26664:26656-26657"
     volumes:
-      - ./build/node3/oysterd:/oyster:Z
+      - ./build/node3/ottod:/otto:Z
     command:
-      - /oysterd start --home /oyster
+      - /ottod start --home /otto
     networks:
       localnet:
         ipv4_address: 192.167.10.5
