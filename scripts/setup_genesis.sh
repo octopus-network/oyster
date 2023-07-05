@@ -34,6 +34,9 @@ echo "- Set $DENOM as denom"
 sed -i.bak "s/aphoton/$DENOM/g" $GENESIS
 sed -i.bak "s/stake/$DENOM/g" $GENESIS
 
+echo "- Set no_base_fee"
+sed -i.bak 's/"no_base_fee": false/"no_base_fee": true/g' "$GENESIS"
+
 # # Change proposal periods to pass within a reasonable time for local testing
 # sed -i.bak 's/"max_deposit_period": "172800s"/"max_deposit_period": "30s"/g' "$GENESIS"
 # sed -i.bak 's/"voting_period": "172800s"/"voting_period": "30s"/g' "$GENESIS"
