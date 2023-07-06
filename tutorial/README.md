@@ -108,7 +108,7 @@ You're now ready to move on to development and testing for smart contracts.
 
 ## Write an ERC-20 Token Contract
 
-Let's write a smart contract that allows you to mint a token for a price. This smart contract relies on a couple of standard [OpenZeppelin contracts](https://docs.openzeppelin.com/contracts/4.x/) and install the library with the following command:
+Let's write an ERC-20 token contract that relies on a couple of standard [OpenZeppelin contracts](https://docs.openzeppelin.com/contracts/4.x/). And you can install the OpenZeppelin library with the following command:
 
 ```
     npm install @openzeppelin/contracts
@@ -122,13 +122,13 @@ To get started, take the following steps:
     mkdir contracts
     ```
 
-2. Create a new file called `MintableERC20.sol`
+2. Create a new file called `OttoToken.sol`
 
     ```
-    touch contracts/MintableERC20.sol
+    touch contracts/OttoToken.sol
     ```
 
-3. Copy and paste the below contents into `MintableERC20.sol`
+3. Copy and paste the below contents into `OttoToken.sol`
 
     ```
     // SPDX-License-Identifier: UNLICENSED
@@ -137,33 +137,15 @@ To get started, take the following steps:
     import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
     import "@openzeppelin/contracts/access/Ownable.sol";
 
-    contract MintableERC20 is ERC20, Ownable {
-        constructor() ERC20("Mintable ERC 20", "MERC") {}
+    contract OttoToken is ERC20, Ownable {
+        // Total supply: 100 million
+        uint256 private constant TOTAL_SUPPLY = 100000000;
 
-        uint256 public constant MAX_TO_MINT = 1000 ether;
-
-        event PurchaseOccurred(address minter, uint256 amount);
-        error MustMintOverZero();
-        error MintRequestOverMax();
-        error FailedToSendEtherToOwner();
-
-        /**Purchases some of the token with native gas currency. */
-        function purchaseMint() external payable {
-            // Calculate amount to mint
-            uint256 amountToMint = msg.value;
-
-            // Check for no errors
-            if (amountToMint == 0) revert MustMintOverZero();
-            if (amountToMint + totalSupply() > MAX_TO_MINT)
-                revert MintRequestOverMax();
-
-            // Send to owner
-            (bool success, ) = owner().call{value: msg.value}("");
-            if (!success) revert FailedToSendEtherToOwner();
-
-            // Mint to user
-            _mint(msg.sender, amountToMint);
-            emit PurchaseOccurred(msg.sender, amountToMint);
+        /**
+        * @dev Initializes the contract, mint total supply to the deployer (owner).
+        */
+        constructor() ERC20("Otto Token", "OTTO") {
+            _mint(msg.sender, TOTAL_SUPPLY * 10**(uint256(decimals())));
         }
     }    
     ```
@@ -186,7 +168,7 @@ You've now written the smart contract! If this was for a production app, we woul
 
 Hardhat is a Node project that uses the [Ethers.js](https://docs.ethers.org/v6/) library to interact with the blockchain. You can also use Ethers.js with Hardhat's tool to create scripts to do things like deploy contracts.
 
-To deploy `MintableERC20.sol`, you can write a simple script. You can create a new directory for the script and name it `scripts`:
+To deploy the smart contract, you can write a simple script. You can create a new directory for the script and name it `scripts`:
 
 ```
 mkdir scripts
@@ -205,10 +187,10 @@ Then please copy and paste the below contents into `deploy.js`:
 ```javascript
 async function main() {
   const [deployer] = await ethers.getSigners();
-  console.log(`Deploying contracts with the account: ${deployer.address}`);    
-  const tokenContract = await ethers.deployContract('MintableERC20');
+  console.log(`Deploying contract with the account: ${deployer.address}`);    
+  const tokenContract = await ethers.deployContract('OttoToken');
   const deployedAddress = await tokenContract.getAddress();
-  console.log(`Deployed MintableERC20 to the address: ${deployedAddress}`);
+  console.log(`Deployed contract to the address: ${deployedAddress}`);
 }
 
 main().catch((error) => {
@@ -217,7 +199,7 @@ main().catch((error) => {
 });
 ```
 
-This script first fetches the deployer which is the pre-funded account `test` and prints it. Then it uses the `deployContract` method to deploy the `MintableERC20.sol` smart contract that we wrote earlier, and then fetches the address of the contract using the contract instance and prints it. 
+This script first fetches the deployer which is the pre-funded account `test` and prints it. Then it uses the `deployContract` method to deploy the smart contract that we wrote earlier, and then fetches the address of the contract using the contract instance and prints it. 
 
 Let's run the script to deploy the contract on OttoChain Testnet whose JSON-RPC endpoint we defined in the `hardhat.config.js` script earlier:
 
