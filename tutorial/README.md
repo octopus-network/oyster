@@ -57,14 +57,14 @@ touch secrets.json
 The below content is the private key of the pre-funded account `test` in OttoChain Testnet, you can copy and paste it into `secrets.json`.
 
 ```
-afe0a1313b61191d8f9fe2b4b7e91aad98e28458799428f140a61d884dec7c59
+c3b100addbcfbe3b9506d53d60c7e3d647d9adea1ca7d31af6bc2f6fd9a6b6f6
 ```
 
 Your `secrets.json` should resemble the following:
 
 ```json
 {
-    "privateKey": "0xafe0a1313b61191d8f9fe2b4b7e91aad98e28458799428f140a61d884dec7c59"
+    "privateKey": "0xc3b100addbcfbe3b9506d53d60c7e3d647d9adea1ca7d31af6bc2f6fd9a6b6f6"
 }
 ```
 
@@ -237,7 +237,34 @@ You can open [OttoChain Testnet Explorer](http://34.69.4.240:4000/) and search t
 
 ![Search the Contract with Explorer.](./images/explorer-search-contract.jpg)
 
+## Interact with the Contract with MetaMask
+
+To get started, take the following steps:
+
+1. You can connect MetaMask to OttoChain Testnet by clicking on the network dropdown and selecting **Add network**.
+
+![Add network on MetaMask.](./images/metamask-add-network.jpg)
+
+2. Import the pre-funded account `test` into MetaMask with the private key.
+
+![Import account into MetaMask.](./images/metamask-import-account.jpg)
+
+On the import screen, select Private Key and paste in the private key above.
+
+![Import private into MetaMask.](./images/metamask-import-private.jpg)
+
+3. Import the token with the contract address, then do the contract interaction to send some tokens to the another address with the account `test`.
+
+![Import token into MetaMask.](./images/metamask-import-token.jpg)
+
+![Send transaction with MetaMask.](./images/metamask-send-tx.jpg)
+
+4. To check the transaction details with [OttoChain Testnet Explorer](http://34.69.4.240:4000/).
+
+![Check transaction with MetaMask.](./images/metamask-check-tx.jpg)
+
+![Check transaction details with Explorer.](./images/explorer-tx-details.jpg)
+
 ## Conclusion
 
 You can view the complete [tutorial on GitHub](https://github.com/octopus-network/oyster/tree/ottochain/tutorial).
-
