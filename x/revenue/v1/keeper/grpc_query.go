@@ -16,7 +16,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	evmostypes "github.com/evmos/ethermint/types"
 
-	"oyster/x/revenue/v1/types"
+	"github.com/octopus-network/oyster/x/revenue/v1/types"
 )
 
 var _ types.QueryServer = Keeper{}

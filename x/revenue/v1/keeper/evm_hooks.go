@@ -12,7 +12,7 @@ import (
 
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
 
-	"oyster/x/revenue/v1/types"
+	"github.com/octopus-network/oyster/x/revenue/v1/types"
 )
 
 var _ evmtypes.EvmHooks = Hooks{}

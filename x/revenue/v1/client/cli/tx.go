@@ -16,7 +16,7 @@ import (
 
 	evmostypes "github.com/evmos/ethermint/types"
 
-	"oyster/x/revenue/v1/types"
+	"github.com/octopus-network/oyster/x/revenue/v1/types"
 )
 
 // NewTxCmd returns a root CLI command handler for certain modules/revenue

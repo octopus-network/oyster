@@ -8,7 +8,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	errortypes "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"oyster/x/revenue/v1/types"
+	"github.com/octopus-network/oyster/x/revenue/v1/types"
 )
 
 // NewHandler defines the fees module handler instance

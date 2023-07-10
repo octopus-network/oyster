@@ -6,7 +6,7 @@ package keeper
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"oyster/x/revenue/v1/types"
+	"github.com/octopus-network/oyster/x/revenue/v1/types"
 )
 
 // GetParams returns the total set of revenue parameters.

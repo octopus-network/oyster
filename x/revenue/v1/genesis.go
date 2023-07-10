@@ -7,8 +7,8 @@ import (
 	errorsmod "cosmossdk.io/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"oyster/x/revenue/v1/keeper"
-	"oyster/x/revenue/v1/types"
+	"github.com/octopus-network/oyster/x/revenue/v1/keeper"
+	"github.com/octopus-network/oyster/x/revenue/v1/types"
 )
 
 // InitGenesis import module genesis

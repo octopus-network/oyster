@@ -7,9 +7,9 @@ import (
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	cmdcfg "oyster/cmd/config"
+	cmdcfg "github.com/octopus-network/oyster/cmd/config"
 
-	"oyster/app"
+	"github.com/octopus-network/oyster/app"
 )
 
 func main() {
