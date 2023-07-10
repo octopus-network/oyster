@@ -23,9 +23,9 @@ import (
 	"github.com/spf13/cobra"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"oyster/x/revenue/v1/client/cli"
-	"oyster/x/revenue/v1/keeper"
-	"oyster/x/revenue/v1/types"
+	"github.com/octopus-network/oyster/x/revenue/v1/client/cli"
+	"github.com/octopus-network/oyster/x/revenue/v1/keeper"
+	"github.com/octopus-network/oyster/x/revenue/v1/types"
 )
 
 // type check to ensure the interface is properly implemented

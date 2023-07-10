@@ -7,9 +7,9 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 
-	utiltx "oyster/testutil/tx"
+	utiltx "github.com/octopus-network/oyster/testutil/tx"
 
-	"oyster/x/revenue/v1/types"
+	"github.com/octopus-network/oyster/x/revenue/v1/types"
 
 	"github.com/stretchr/testify/suite"
 )

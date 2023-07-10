@@ -8,15 +8,15 @@ import (
 
 	"github.com/evmos/ethermint/encoding"
 
-	v2 "oyster/x/revenue/v1/migrations/v2"
-	v2types "oyster/x/revenue/v1/migrations/v2/types"
-	"oyster/x/revenue/v1/types"
+	v2 "github.com/octopus-network/oyster/x/revenue/v1/migrations/v2"
+	v2types "github.com/octopus-network/oyster/x/revenue/v1/migrations/v2/types"
+	"github.com/octopus-network/oyster/x/revenue/v1/types"
 
 	"github.com/cosmos/cosmos-sdk/testutil"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
 
-	"oyster/app"
+	"github.com/octopus-network/oyster/app"
 )
 
 type mockSubspace struct {

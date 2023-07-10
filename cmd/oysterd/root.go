@@ -38,8 +38,8 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 	dbm "github.com/tendermint/tm-db"
 
-	"oyster/app"
-	cmdcfg "oyster/cmd/config"
+	"github.com/octopus-network/oyster/app"
+	cmdcfg "github.com/octopus-network/oyster/cmd/config"
 )
 
 const EnvPrefix = "OYSTER"

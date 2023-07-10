@@ -41,13 +41,13 @@ import (
 	"github.com/evmos/ethermint/server/config"
 	srvflags "github.com/evmos/ethermint/server/flags"
 
-	oysterkr "oyster/crypto/keyring"
+	oysterkr "github.com/octopus-network/oyster/crypto/keyring"
 
 	evmostypes "github.com/evmos/ethermint/types"
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
 	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
 
-	cmdcfg "oyster/cmd/config"
+	cmdcfg "github.com/octopus-network/oyster/cmd/config"
 
 	"github.com/evmos/ethermint/testutil/network"
 )

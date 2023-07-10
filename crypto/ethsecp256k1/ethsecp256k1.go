@@ -16,7 +16,7 @@ import (
 	"github.com/ethereum/go-ethereum/crypto"
 	tmcrypto "github.com/tendermint/tendermint/crypto"
 
-	"oyster/ethereum/eip712"
+	"github.com/octopus-network/oyster/ethereum/eip712"
 )
 
 const (
