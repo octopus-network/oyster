@@ -2,7 +2,6 @@
 
 PACKAGES_NOSIMULATION=$(shell go list ./... | grep -v '/simulation')
 VERSION ?= $(shell echo $(shell git describe --tags --always) | sed 's/^v//')
-TMVERSION := $(shell go list -m github.com/tendermint/tendermint | sed 's:.* ::')
 COMMIT := $(shell git log -1 --format='%H')
 LEDGER_ENABLED ?= true
 OYSTER_BINARY = oysterd
@@ -47,8 +46,7 @@ build_tags := $(strip $(build_tags))
 ldflags = -X github.com/cosmos/cosmos-sdk/version.Name=oyster \
           -X github.com/cosmos/cosmos-sdk/version.AppName=$(OYSTER_BINARY) \
           -X github.com/cosmos/cosmos-sdk/version.Version=$(VERSION) \
-          -X github.com/cosmos/cosmos-sdk/version.Commit=$(COMMIT) \
-          -X github.com/tendermint/tendermint/version.TMCoreSemVer=$(TMVERSION)
+          -X github.com/cosmos/cosmos-sdk/version.Commit=$(COMMIT)
 
 ifeq (cleveldb,$(findstring cleveldb,$(COSMOS_BUILD_OPTIONS)))
   ldflags += -X github.com/cosmos/cosmos-sdk/types.DBBackend=cleveldb
