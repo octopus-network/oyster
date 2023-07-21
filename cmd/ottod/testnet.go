@@ -217,7 +217,7 @@ func initTestnetFiles(
 	if args.chainID == "" {
 		args.chainID = fmt.Sprintf("otto_%d-1", tmrand.Int63n(9999999999999)+1)
 	}
-	// if args.minGasPrices == "0aoct" {
+	// if args.minGasPrices == "0aotto" {
 	// 	args.minGasPrices = fmt.Sprintf("7%s", cmdcfg.BaseDenom)
 	// }
 	nodeIDs := make([]string, args.numValidators)
