@@ -48,7 +48,7 @@ This will create a Hardhat config file (`hardhat.config.js`) in your project dir
 
 Before you can write and deploy the contract to OttoChain Testnet, you'll need to modify the Hardhat configuration file.
 
-Then you can create a `secrets.json` file under the project directory to store the private key of the pre-funded account `test` which has some `OCT` tokens in OttoChain Testnet by running:
+Then you can create a `secrets.json` file under the project directory to store the private key of the pre-funded account `test` which has some `OTTO` tokens in OttoChain Testnet by running:
 
 ```
 touch secrets.json

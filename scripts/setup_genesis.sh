@@ -2,7 +2,7 @@
 
 CHAIN="otto"
 # set denom
-DENOM="aoct"
+DENOM="aotto"
 CHAINID="$CHAIN"_9100-1
 MONIKER="orchestrator"
 
