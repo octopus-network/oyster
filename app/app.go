@@ -88,6 +88,7 @@ import (
 	ibcporttypes "github.com/cosmos/ibc-go/v7/modules/core/05-port/types"
 	ibcexported "github.com/cosmos/ibc-go/v7/modules/core/exported"
 	ibckeeper "github.com/cosmos/ibc-go/v7/modules/core/keeper"
+	solomachine "github.com/cosmos/ibc-go/v7/modules/light-clients/06-solomachine"
 	tendermint "github.com/cosmos/ibc-go/v7/modules/light-clients/07-tendermint"
 	ccvgov "github.com/octopus-network/interchain-security/x/ccv/democracy/governance"
 
@@ -138,6 +139,7 @@ var (
 		transfer.AppModuleBasic{},
 		vesting.AppModuleBasic{},
 		tendermint.AppModuleBasic{},
+		solomachine.AppModuleBasic{},
 		ccvconsumer.AppModuleBasic{},
 		consensus.AppModuleBasic{},
 	)
