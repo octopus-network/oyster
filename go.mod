@@ -4,12 +4,12 @@ go 1.20
 
 require (
 	cosmossdk.io/api v0.3.1
-	github.com/cometbft/cometbft v0.37.1
+	github.com/cometbft/cometbft v0.37.2
 	github.com/cometbft/cometbft-db v0.8.0
 	github.com/cosmos/cosmos-sdk v0.47.3
 	github.com/cosmos/ibc-go/v7 v7.1.0
 	github.com/gorilla/mux v1.8.0
-	github.com/octopus-network/interchain-security v0.0.0-20230625042613-08c23ca35da9
+	github.com/octopus-network/interchain-security v0.0.0-20230727005942-4feeb9256a44
 	github.com/spf13/cast v1.5.1
 	github.com/spf13/cobra v1.6.1
 	github.com/stretchr/testify v1.8.4
