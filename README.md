@@ -2,6 +2,20 @@
 
 **OttoChain** is a scalable PoS blockchain that is fully compatible and interoperable with the EVM. It is built using the Cosmos SDK which runs on top of the CometBFT consensus engine, to accomplish fast finality, high transaction throughput and short block times (~2 seconds).
 
+## OttoChain Testnet
+
+* Chain Name: OttoChain
+* Cosmos Chain ID: `otto_9100-1`
+* EVM Chain ID (EIP155 Number): `9100`
+* JSON RPC: `https://gateway.testnet.octopus.network/ottochain/m4k5urt9h33dpbhgsp4lqxemo6naeihz`
+* [Explorer](http://34.69.4.240:4000/)
+* [Faucet](http://34.69.4.240:8088/)
+* Genesis File: [genesis.json](https://raw.githubusercontent.com/octopus-network/oyster/ocb-otto/genesis.json)
+* Persistent Peers:
+    ```json
+    persistent_peers = "58ca8716508f50d51d2918c9b70758c1c25bb498@34.81.140.131:26656, 834bbc8f2738313679c414df63136eb3197048a7@35.201.135.223:26656"
+    ```
+
 ## Run Multi Node
 
 To build start a 4 node testnet using docker, run:
