@@ -1,5 +1,5 @@
 {
-  "genesis_time": "2023-08-01T10:05:33.903867583Z",
+  "genesis_time": "2023-08-04T00:29:19.911360658Z",
   "chain_id": "otto_9100-1",
   "initial_height": "1",
   "consensus_params": {
@@ -33,7 +33,14 @@
       "accounts": [
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "otto1j4t5885m9rxya8fzrtmv4ta7swhefsjrv0zvz5",
+          "address": "otto1zrut2rar5lyjrkxgys5hrgsn55lyzj6rk59mm5",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "otto145e7kmpvlvm7hr2x6ayxakz0avpjpk52d9anmd",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
@@ -50,11 +57,20 @@
       },
       "balances": [
         {
-          "address": "otto1j4t5885m9rxya8fzrtmv4ta7swhefsjrv0zvz5",
+          "address": "otto1zrut2rar5lyjrkxgys5hrgsn55lyzj6rk59mm5",
           "coins": [
             {
               "denom": "aotto",
-              "amount": "10000000000000000000000"
+              "amount": "10000000000000000000000000"
+            }
+          ]
+        },
+        {
+          "address": "otto145e7kmpvlvm7hr2x6ayxakz0avpjpk52d9anmd",
+          "coins": [
+            {
+              "denom": "aotto",
+              "amount": "100000000000000000000000000"
             }
           ]
         }
@@ -148,7 +164,7 @@
               {
                 "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
                 "description": {
-                  "moniker": "octopus-validator",
+                  "moniker": "validator",
                   "identity": "",
                   "website": "",
                   "security_contact": "",
@@ -160,11 +176,11 @@
                   "max_change_rate": "0.010000000000000000"
                 },
                 "min_self_delegation": "1",
-                "delegator_address": "otto1j4t5885m9rxya8fzrtmv4ta7swhefsjrv0zvz5",
-                "validator_address": "ottovaloper1j4t5885m9rxya8fzrtmv4ta7swhefsjrqlkfdx",
+                "delegator_address": "otto1zrut2rar5lyjrkxgys5hrgsn55lyzj6rk59mm5",
+                "validator_address": "ottovaloper1zrut2rar5lyjrkxgys5hrgsn55lyzj6r6y375x",
                 "pubkey": {
                   "@type": "/cosmos.crypto.ed25519.PubKey",
-                  "key": "gE68JMXgmj5HikW7Qkebzv0Te2m1qyXMzlhH9/nzGVQ="
+                  "key": "JzzR4gjR8k1ilZ2sH6CYIQUS2fAp7Rd+eikKybFrjBs="
                 },
                 "value": {
                   "denom": "aotto",
@@ -172,7 +188,7 @@
                 }
               }
             ],
-            "memo": "bed7d1542998e491d8165dc9ac2b613f70861679@10.128.0.44:26656",
+            "memo": "0212d702e706a307b73ef5b24693d86bca06468b@10.128.0.44:26656",
             "timeout_height": "0",
             "extension_options": [],
             "non_critical_extension_options": []
@@ -182,7 +198,7 @@
               {
                 "public_key": {
                   "@type": "/ethermint.crypto.v1.ethsecp256k1.PubKey",
-                  "key": "A1J8KlAbehscOhA8HomFs++Ge7OMeWODqxYDi51bgrIf"
+                  "key": "A1KwTKB8LrG3OR2CJpKIghbMWjwb5szhn5n7gVQoQGoL"
                 },
                 "mode_info": {
                   "single": {
@@ -201,7 +217,7 @@
             "tip": null
           },
           "signatures": [
-            "Fe+QLjF/EO57OjjmcV9rszbLhSe8i0KOe8GD4bUN/4YqmOaezcbMnQw5Hr+tPUSqtERF8wpK0DUfIpGeuHo2CAA="
+            "Ia1IeYuzr1aldI0d6He4RlvwxbW+pOymLrGd9QcOgXsPszi3X1GnOND9ik2BGgzMqNiEyRSqDd456YdGDNpptwA="
           ]
         }
       ]
