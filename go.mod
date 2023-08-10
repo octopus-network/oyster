@@ -173,4 +173,5 @@ require (
 replace github.com/syndtr/goleveldb => github.com/syndtr/goleveldb v1.0.1-0.20210819022825-2ae1ddf74ef7
 
 // replace github.com/cosmos/ibc-go/v7 => /home/julian/dev/go/ibc-go
-replace github.com/cosmos/ibc-go/v7 => github.com/octopus-network/ibc-go/v7 v7.1.0-rc0.0.20230806142855-38604498fa34
+
+replace github.com/cosmos/ibc-go/v7 => github.com/octopus-network/ibc-go/v7 v7.1.0-rc0.0.20230810165521-1666de2d6e99

@@ -921,8 +921,8 @@ github.com/neilotoole/errgroup v0.1.6/go.mod h1:Q2nLGf+594h0CLBs/Mbg6qOr7GtqDK7C
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod h1:zD1mROLANZcx1PVRCS0qkT7pwLkGfwJo4zjcN/Tysno=
 github.com/nxadm/tail v1.4.4/go.mod h1:kenIhsEOeOJmVchQTgglprH7qJGnHDVpk1VPCcaMI8A=
 github.com/nxadm/tail v1.4.8 h1:nPr65rt6Y5JFSKQO7qToXr7pePgD6Gwiw05lkbyAQTE=
-github.com/octopus-network/ibc-go/v7 v7.1.0-rc0.0.20230806142855-38604498fa34 h1:RXlBGUf6dNwxekqDO818KL/029aLa2ctEq2OqMmNwT0=
-github.com/octopus-network/ibc-go/v7 v7.1.0-rc0.0.20230806142855-38604498fa34/go.mod h1:7MptlWeIyqmDiuJeRAFqBvXKY8Hybd+rF8vMSmGd2zg=
+github.com/octopus-network/ibc-go/v7 v7.1.0-rc0.0.20230810165521-1666de2d6e99 h1:7zwlHcqQ2l13u8KxUaV/5oCP8udG+HyU2OyftAwJmCo=
+github.com/octopus-network/ibc-go/v7 v7.1.0-rc0.0.20230810165521-1666de2d6e99/go.mod h1:7MptlWeIyqmDiuJeRAFqBvXKY8Hybd+rF8vMSmGd2zg=
 github.com/octopus-network/interchain-security v0.0.0-20230727005942-4feeb9256a44 h1:AV3RJzKFvGORVXx5ih6kCntfJVdlQEiNLJCe+lBQOK8=
 github.com/octopus-network/interchain-security v0.0.0-20230727005942-4feeb9256a44/go.mod h1:deNUA/kTmupRUoj3y/XjWIKjPFiFrDvb9uJdhDtng8Y=
 github.com/oklog/oklog v0.3.2/go.mod h1:FCV+B7mhrz4o+ueLpx+KqkyXRGMWOYEvfiXtdGtbWGs=
