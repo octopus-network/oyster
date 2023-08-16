@@ -1,3 +1,6 @@
+// Copyright Tharsis Labs Ltd.(Evmos)
+// SPDX-License-Identifier:ENCL-1.0(https://github.com/evmos/evmos/blob/main/LICENSE)
+
 package main
 
 import (
@@ -7,9 +10,9 @@ import (
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	cmdcfg "oyster/cmd/config"
+	"github.com/octopus-network/oyster/v2/app"
 
-	"oyster/app"
+	cmdcfg "github.com/octopus-network/oyster/v2/cmd/config"
 )
 
 func main() {

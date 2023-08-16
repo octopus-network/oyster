@@ -6,11 +6,11 @@ services:
     image: "otto/node"
     ports:
       - "26666-26667:26656-26657"
-      - "8545-8546:8545-8546"
+      - "18545-18546:8545-8546"
     volumes:
       - ./build/node0/ottod:/otto:Z
     command:
-      - /ottod start --json-rpc.address="0.0.0.0:8545" --json-rpc.ws-address="0.0.0.0:8546" --json-rpc.api="eth,web3,net,txpool" --home /otto 
+      - /ottod start --json-rpc.address="0.0.0.0:8545" --json-rpc.ws-address="0.0.0.0:8546" --json-rpc.api="eth,web3,net,txpool" --home /otto
     networks:
       localnet:
         ipv4_address: 192.167.10.2
