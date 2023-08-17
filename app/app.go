@@ -123,7 +123,7 @@ import (
 	consensusparamkeeper "github.com/cosmos/cosmos-sdk/x/consensus/keeper"
 	consensusparamtypes "github.com/cosmos/cosmos-sdk/x/consensus/types"
 
-	revenue "github.com/evmos/evmos/v14/x/revenue/v1"
+	"github.com/evmos/evmos/v14/x/revenue/v1"
 	revenuekeeper "github.com/evmos/evmos/v14/x/revenue/v1/keeper"
 	revenuetypes "github.com/evmos/evmos/v14/x/revenue/v1/types"
 )
@@ -159,7 +159,7 @@ var (
 	// and genesis verification.
 	ModuleBasics = module.NewBasicManager(
 		auth.AppModuleBasic{},
-		genutil.AppModuleBasic{},
+		genutil.AppModuleBasic{GenTxValidator: genutiltypes.DefaultMessageValidator},
 		bank.AppModuleBasic{},
 		capability.AppModuleBasic{},
 		staking.AppModuleBasic{},
