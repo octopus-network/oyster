@@ -208,4 +208,6 @@ replace (
 	github.com/cosmos/cosmos-sdk => github.com/evmos/cosmos-sdk v0.47.4-evmos.2
 	// use Evmos geth fork
 	github.com/ethereum/go-ethereum => github.com/evmos/go-ethereum v1.10.26-evmos-rc2
+	// use Evmos fork to remove the limit of chainID
+	github.com/evmos/evmos/v14 => github.com/octopus-network/evmos/v14 v14.0.0-otto
 )
