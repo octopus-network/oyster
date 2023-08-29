@@ -37,7 +37,7 @@ import (
 
 	"oyster/app"
 
-	appparams "github.com/octopus-network/interchain-security/app/params"
+	appparams "github.com/cosmos/interchain-security/v3/app/params"
 )
 
 // NewRootCmd creates a new root command for a Cosmos SDK application
