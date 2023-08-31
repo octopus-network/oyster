@@ -36,35 +36,35 @@
       "accounts": [
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "cosmos14vef0vs2ukwpke20qhwnyrrv2tu3sd85nanlly",
+          "address": "cosmos1pu4vcjk6g5twldtd7yg2aj5sld7k4vr9m2n45k",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "cosmos1gxs6q74sdhgr9whsxjllff0d2z756zy33jql4r",
+          "address": "cosmos15vuygma3cq94wj3575f4zl47aekxe3kzmyjucq",
           "pub_key": null,
           "account_number": "1",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "cosmos1f74yyna6pyvgp9zdq67rmwpuljgwu0ezqt4l9l",
+          "address": "cosmos1zj5jyvqjxk37eev0zspyjves9h9rzqejem5f45",
           "pub_key": null,
           "account_number": "2",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "cosmos1qzxqp6j8977aj3jtz78xgpqd3f0lkqkta30h3t",
+          "address": "cosmos1sfcv0wytjk0fcjjufm9eyyn0hf0gzy6kfaup7x",
           "pub_key": null,
           "account_number": "3",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "cosmos1pu4vcjk6g5twldtd7yg2aj5sld7k4vr9m2n45k",
+          "address": "cosmos1qkxycpn5vkhqtz6vsxfen0sg5y930wzvg8krel",
           "pub_key": null,
           "account_number": "4",
           "sequence": "0"
@@ -81,34 +81,7 @@
       },
       "balances": [
         {
-          "address": "cosmos14vef0vs2ukwpke20qhwnyrrv2tu3sd85nanlly",
-          "coins": [
-            {
-              "denom": "stake",
-              "amount": "100000000000000"
-            }
-          ]
-        },
-        {
-          "address": "cosmos1gxs6q74sdhgr9whsxjllff0d2z756zy33jql4r",
-          "coins": [
-            {
-              "denom": "stake",
-              "amount": "100000000000000"
-            }
-          ]
-        },
-        {
-          "address": "cosmos1f74yyna6pyvgp9zdq67rmwpuljgwu0ezqt4l9l",
-          "coins": [
-            {
-              "denom": "stake",
-              "amount": "100000000000000"
-            }
-          ]
-        },
-        {
-          "address": "cosmos1qzxqp6j8977aj3jtz78xgpqd3f0lkqkta30h3t",
+          "address": "cosmos1qkxycpn5vkhqtz6vsxfen0sg5y930wzvg8krel",
           "coins": [
             {
               "denom": "stake",
@@ -122,6 +95,33 @@
             {
               "denom": "stake",
               "amount": "10000000000000000000"
+            }
+          ]
+        },
+        {
+          "address": "cosmos1zj5jyvqjxk37eev0zspyjves9h9rzqejem5f45",
+          "coins": [
+            {
+              "denom": "stake",
+              "amount": "100000000000000"
+            }
+          ]
+        },
+        {
+          "address": "cosmos1sfcv0wytjk0fcjjufm9eyyn0hf0gzy6kfaup7x",
+          "coins": [
+            {
+              "denom": "stake",
+              "amount": "100000000000000"
+            }
+          ]
+        },
+        {
+          "address": "cosmos15vuygma3cq94wj3575f4zl47aekxe3kzmyjucq",
+          "coins": [
+            {
+              "denom": "stake",
+              "amount": "100000000000000"
             }
           ]
         }
@@ -238,25 +238,25 @@
       "initial_val_set": [
         {
           "pub_key": {
-            "ed25519": "JzzR4gjR8k1ilZ2sH6CYIQUS2fAp7Rd+eikKybFrjBs="
+            "ed25519": "kpjWW+JskhJ3P/K+dqT5wmFMbwC/qe9xUGfsPNQzvMs="
           },
           "power": "10000"
         },
         {
           "pub_key": {
-            "ed25519": "glsBFjalPlEs3GYA7/oa11CV/rIIb63h9S0Oox7iGbA="
+            "ed25519": "IP8w8x8qlrEG0eiAj5JUX7OQBoXUKZPFFW/hhpFUXXo="
           },
           "power": "10000"
         },
         {
           "pub_key": {
-            "ed25519": "6GO30x2H9UcgwO8NoD00rthmg2VHttItRxekk+bAjTM="
+            "ed25519": "vWnobzWv9c5PfhrWX2MuzRLqBS2eD4rwIy5bFzUgm4Y="
           },
           "power": "10000"
         },
         {
           "pub_key": {
-            "ed25519": "Sf6cMKUvCwpDA4JOlu6FZxo/wAwA0LxFfcnMV4eeKvI="
+            "ed25519": "qMeQL7WN/hY+aSATeHsjj7WJJc9QXyVWyoJH2l5d6jI="
           },
           "power": "10000"
         }
