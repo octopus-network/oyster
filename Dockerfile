@@ -22,4 +22,4 @@ COPY --from=builder /go/bin/oysterd /usr/local/bin/
 EXPOSE 26656 26657 1317 9090
 USER 0
 
-ENTRYPOINT ["oysterd", "start"]
+ENTRYPOINT ["/bin/bash", "-c"]

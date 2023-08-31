@@ -85,6 +85,7 @@ endif
 
 BUILD_TARGETS := build install
 
+.PHONY: build
 build: BUILD_ARGS=-o $(BUILDDIR)/
 
 $(BUILD_TARGETS): go.sum $(BUILDDIR)/
@@ -101,4 +102,17 @@ go.sum: go.mod
 	@go mod verify
 
 clean:
-	rm -rf $(BUILDDIR)/ artifacts/
+	rm -rf $(BUILDDIR)/
+
+.PHONY: build-image
+build-image:
+	docker build --no-cache -t octopus-appchains/oyster -f Dockerfile .
+
+.PHONY: launch-devnet
+launch-devnet:
+	@bash $(CURDIR)/tests/launch_devnet.sh
+
+.PHONY: launch-localnet
+launch-localnet:
+	@bash $(CURDIR)/tests/init_localnet.sh
+	docker compose up -d
