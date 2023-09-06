@@ -7,7 +7,7 @@ require (
 	github.com/cometbft/cometbft v0.37.2
 	github.com/cometbft/cometbft-db v0.8.0
 	github.com/cosmos/cosmos-sdk v0.47.4
-	github.com/cosmos/ibc-go/v7 v7.2.0
+	github.com/cosmos/ibc-go/v7 v7.3.0
 	github.com/cosmos/interchain-security/v3 v3.1.0
 	github.com/gorilla/mux v1.8.0
 	github.com/spf13/cast v1.5.1
