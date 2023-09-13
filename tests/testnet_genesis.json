@@ -132,7 +132,34 @@
           "amount": "10000400000000000000"
         }
       ],
-      "denom_metadata": [],
+      "denom_metadata": [
+        {
+          "name": "stake",
+          "description": "The native staking token of Oyster.",
+          "denom_units": [
+            {
+              "denom": "ustake",
+              "exponent": 0,
+              "aliases": [
+                "microstake"
+              ]
+            },
+            {
+              "denom": "mstake",
+              "exponent": 3,
+              "aliases": [
+                "millistake"
+              ]
+            },
+            {
+              "denom": "stake",
+              "exponent": 6
+            }
+          ],
+          "base": "ustake",
+          "display": "stake"
+        }
+      ],
       "send_enabled": []
     },
     "capability": {
