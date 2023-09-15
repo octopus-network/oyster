@@ -8,6 +8,7 @@ HOME_DIR=~/.$MONIKER-node
 KEY=$MONIKER
 VALIDATOR_DIR=$(pwd)/tests/validatornode01
 CCV_SECTION=$(pwd)/tests/devnet_ccv_consumer.json
+DENOM_METADAT_SECTION=$(pwd)/tests/denom_metadata.json
 GENESIS=$HOME_DIR/config/genesis.json
 TEMP_GENESIS=$HOME_DIR/config/tmp_genesis.json
 
@@ -22,6 +23,10 @@ $CHAIN_BIN init $MONIKER --chain-id $CHAINID --home $HOME_DIR
 echo "Prepare genesis..."
 echo "- Set CCV Consumer section"
 jq -s '.[0].app_state.ccvconsumer = .[1] | .[0]' $GENESIS $CCV_SECTION > $TEMP_GENESIS && mv $TEMP_GENESIS $GENESIS
+
+echo "- Set bank.denom_metadata with the content of $DENOM_METADAT_SECTION"
+jq -s '.[0].app_state.bank.denom_metadata = .[1] | .[0]' $GENESIS $DENOM_METADAT_SECTION > $HOME_DIR/config/genesis_denom_metadata.json
+mv $HOME_DIR/config/genesis_denom_metadata.json $GENESIS
 
 echo "- Allocate genesis accounts"
 $CHAIN_BIN genesis add-genesis-account \
