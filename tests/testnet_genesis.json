@@ -157,7 +157,8 @@
             }
           ],
           "base": "ustake",
-          "display": "stake"
+          "display": "stake",
+          "symbol": "STAKE"
         }
       ],
       "send_enabled": []
