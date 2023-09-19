@@ -84,8 +84,8 @@
           "address": "cosmos1qkxycpn5vkhqtz6vsxfen0sg5y930wzvg8krel",
           "coins": [
             {
-              "denom": "stake",
-              "amount": "100000000000000"
+              "denom": "ustake",
+              "amount": "1000000000000"
             }
           ]
         },
@@ -93,8 +93,8 @@
           "address": "cosmos1pu4vcjk6g5twldtd7yg2aj5sld7k4vr9m2n45k",
           "coins": [
             {
-              "denom": "stake",
-              "amount": "10000000000000000000"
+              "denom": "ustake",
+              "amount": "96000000000000"
             }
           ]
         },
@@ -102,8 +102,8 @@
           "address": "cosmos1zj5jyvqjxk37eev0zspyjves9h9rzqejem5f45",
           "coins": [
             {
-              "denom": "stake",
-              "amount": "100000000000000"
+              "denom": "ustake",
+              "amount": "1000000000000"
             }
           ]
         },
@@ -111,8 +111,8 @@
           "address": "cosmos1sfcv0wytjk0fcjjufm9eyyn0hf0gzy6kfaup7x",
           "coins": [
             {
-              "denom": "stake",
-              "amount": "100000000000000"
+              "denom": "ustake",
+              "amount": "1000000000000"
             }
           ]
         },
@@ -120,16 +120,16 @@
           "address": "cosmos15vuygma3cq94wj3575f4zl47aekxe3kzmyjucq",
           "coins": [
             {
-              "denom": "stake",
-              "amount": "100000000000000"
+              "denom": "ustake",
+              "amount": "1000000000000"
             }
           ]
         }
       ],
       "supply": [
         {
-          "denom": "stake",
-          "amount": "10000400000000000000"
+          "denom": "ustake",
+          "amount": "100000000000000"
         }
       ],
       "denom_metadata": [
@@ -173,11 +173,11 @@
         "blocks_per_distribution_transmission": "1000",
         "distribution_transmission_channel": "",
         "provider_fee_pool_addr_str": "",
-        "ccv_timeout_period": "2419200s",
+        "ccv_timeout_period": "4800s",
         "transfer_timeout_period": "3600s",
         "consumer_redistribution_fraction": "0.75",
         "historical_entries": "10000",
-        "unbonding_period": "1814400s",
+        "unbonding_period": "3600s",
         "soft_opt_out_threshold": "0.05"
       },
       "provider_client_id": "",
@@ -189,8 +189,8 @@
           "numerator": "1",
           "denominator": "3"
         },
-        "trusting_period": "1197504s",
-        "unbonding_period": "1814400s",
+        "trusting_period": "2376s",
+        "unbonding_period": "3600s",
         "max_clock_drift": "10s",
         "frozen_height": {
           "revision_number": "0",
@@ -302,7 +302,7 @@
     "consensus": null,
     "crisis": {
       "constant_fee": {
-        "denom": "stake",
+        "denom": "ustake",
         "amount": "1000"
       }
     },
@@ -326,12 +326,12 @@
       "params": {
         "min_deposit": [
           {
-            "denom": "stake",
+            "denom": "ustake",
             "amount": "10000000"
           }
         ],
-        "max_deposit_period": "172800s",
-        "voting_period": "172800s",
+        "max_deposit_period": "600s",
+        "voting_period": "600s",
         "quorum": "0.334000000000000000",
         "threshold": "0.500000000000000000",
         "veto_threshold": "0.334000000000000000",
@@ -389,11 +389,11 @@
     },
     "staking": {
       "params": {
-        "unbonding_time": "1814400s",
+        "unbonding_time": "3600s",
         "max_validators": 100,
         "max_entries": 7,
         "historical_entries": 10000,
-        "bond_denom": "stake",
+        "bond_denom": "ustake",
         "min_commission_rate": "0.000000000000000000"
       },
       "last_total_power": "0",
