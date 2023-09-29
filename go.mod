@@ -7,7 +7,7 @@ require (
 	github.com/cometbft/cometbft v0.37.2
 	github.com/cometbft/cometbft-db v0.8.0
 	github.com/cosmos/cosmos-sdk v0.47.4
-	github.com/cosmos/ibc-go/v7 v7.2.0
+	github.com/cosmos/ibc-go/v7 v7.3.0
 	github.com/cosmos/interchain-security/v3 v3.1.0
 	github.com/gorilla/mux v1.8.0
 	github.com/spf13/cast v1.5.1
@@ -174,6 +174,6 @@ require (
 
 // following versions might cause unexpected behavior
 replace (
-	github.com/cosmos/interchain-security/v3 v3.1.0 => github.com/octopus-network/interchain-security/v3 v3.0.0-20230828075712-3e0f023bcc38
+	github.com/cosmos/interchain-security/v3 v3.1.0 => github.com/octopus-network/interchain-security/v3 v3.0.0-20230929031156-9cbdd569535c
 	github.com/syndtr/goleveldb => github.com/syndtr/goleveldb v1.0.1-0.20210819022825-2ae1ddf74ef7
 )
