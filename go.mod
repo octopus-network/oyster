@@ -174,6 +174,6 @@ require (
 
 // following versions might cause unexpected behavior
 replace (
-	github.com/cosmos/interchain-security/v3 v3.1.0 => github.com/octopus-network/interchain-security/v3 v3.0.0-20230828075712-3e0f023bcc38
+	github.com/cosmos/interchain-security/v3 v3.1.0 => github.com/octopus-network/interchain-security/v3 v3.0.0-20231016013124-ed6ef38f4787
 	github.com/syndtr/goleveldb => github.com/syndtr/goleveldb v1.0.1-0.20210819022825-2ae1ddf74ef7
 )
