@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  cosmovisor:
+    container_name: cosmovisor
+    image: "octopus-appchains/oyster"
+    ports:
+      - "26616-26617:26656-26657"
+    volumes:
+      - ./build/validatornode01:/data:Z
+    command:
+      - |
+          echo "sleep for 300 seconds"
+          sleep 300s
+          cosmovisor run start --home /data
