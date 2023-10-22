@@ -31,13 +31,14 @@ RUN git clone --depth 1 -b ${COSMOS_VERSION} https://github.com/cosmos/cosmos-sd
 FROM ubuntu:22.04
 
 # Set the environmental variables
-ENV DAEMON_HOME=/data
+ENV DAEMON_HOME=/oyster
 ENV DAEMON_NAME=oysterd
 
 # Create the folder structure required for using cosmovisor
 RUN mkdir -p $DAEMON_HOME/cosmovisor/genesis/bin \
     && mkdir -p $DAEMON_HOME/cosmovisor/upgrades/v2/bin \
-    && mkdir -p $DAEMON_HOME/cosmovisor/upgrades/v3/bin
+    && mkdir -p $DAEMON_HOME/cosmovisor/upgrades/v3/bin \
+    && mkdir -p $DAEMON_HOME/data
 
 # Copy the cosmovisor binary
 COPY --from=builder /root/cosmos-sdk/tools/cosmovisor/cosmovisor /usr/local/bin/cosmovisor
