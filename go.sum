@@ -923,8 +923,8 @@ github.com/neilotoole/errgroup v0.1.6/go.mod h1:Q2nLGf+594h0CLBs/Mbg6qOr7GtqDK7C
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod h1:zD1mROLANZcx1PVRCS0qkT7pwLkGfwJo4zjcN/Tysno=
 github.com/nxadm/tail v1.4.4/go.mod h1:kenIhsEOeOJmVchQTgglprH7qJGnHDVpk1VPCcaMI8A=
 github.com/nxadm/tail v1.4.8 h1:nPr65rt6Y5JFSKQO7qToXr7pePgD6Gwiw05lkbyAQTE=
-github.com/octopus-network/interchain-security/v3 v3.0.0-20231021013426-101badfaa6e3 h1:aH/gPzDGxw2A/rG7Q2JuA/tX8Lgstok/YUMUhK1Ud2U=
-github.com/octopus-network/interchain-security/v3 v3.0.0-20231021013426-101badfaa6e3/go.mod h1:Nq4i4iPx1TJqzp4FoLYHPN2mLRtSB/VZubdW99WxLF8=
+github.com/octopus-network/interchain-security/v3 v3.0.0-20231023063746-affd9bce1123 h1:jbtAacOYqw+Vi5wWCZ208P+/9IxG/+4OFazVVC4VidY=
+github.com/octopus-network/interchain-security/v3 v3.0.0-20231023063746-affd9bce1123/go.mod h1:Nq4i4iPx1TJqzp4FoLYHPN2mLRtSB/VZubdW99WxLF8=
 github.com/oklog/oklog v0.3.2/go.mod h1:FCV+B7mhrz4o+ueLpx+KqkyXRGMWOYEvfiXtdGtbWGs=
 github.com/oklog/run v1.0.0/go.mod h1:dlhp/R75TPv97u0XWUtDeV/lRKWPKSdTuV0TZvrmrQA=
 github.com/oklog/ulid v1.3.1/go.mod h1:CirwcVhetQ6Lv90oh/F+FBtV6XMibvdAFo93nm5qn4U=
