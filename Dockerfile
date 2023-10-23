@@ -9,7 +9,7 @@ RUN apt-get update \
 WORKDIR /root
 
 # Download and compile the oysterd binaries
-RUN git clone --depth 1 -b v1 https://github.com/octopus-network/oyster.git oyster-v1 \
+RUN git clone --depth 1 -b release-v1 https://github.com/octopus-network/oyster.git oyster-v1 \
     && cd oyster-v1 \
     && make build
 
