@@ -1,0 +1,73 @@
+{
+    "params": {
+        "enabled": true,
+        "blocks_per_distribution_transmission": "100",
+        "distribution_transmission_channel": "",
+        "provider_fee_pool_addr_str": "",
+        "ccv_timeout_period": "2419200s",
+        "transfer_timeout_period": "3600s",
+        "consumer_redistribution_fraction": "0.75",
+        "historical_entries": "10000",
+        "unbonding_period": "1814400s",
+        "soft_opt_out_threshold": "0.05"
+    },
+    "provider_client_id": "",
+    "provider_channel_id": "",
+    "new_chain": true,
+    "provider_client_state": {
+        "sequence": "1",
+        "is_frozen": false,
+        "consensus_state": {
+            "public_key": {
+                "@type": "/cosmos.crypto.secp256k1.PubKey",
+                "key": "A1iVSz1qIIHpI1YzMBPV3YwT3H2TV7hIgImkivPpJXC/"
+            },
+            "diversifier": "oct",
+            "timestamp": "1698041666697730211"
+        }
+    },
+    "provider_consensus_state": {
+        "public_key": {
+            "@type": "/cosmos.crypto.secp256k1.PubKey",
+            "key": "A1iVSz1qIIHpI1YzMBPV3YwT3H2TV7hIgImkivPpJXC/"
+        },
+        "diversifier": "oct",
+        "timestamp": "1698041666697730211"
+    },
+    "maturing_packets": [],
+    "initial_val_set": [
+        {
+            "pub_key": {
+                "ed25519": "vDRusrMW7QUpKwi9EZejFIfS86XWqtMeMCWR2g44+TU="
+            },
+            "power": "10000"
+        },
+        {
+            "pub_key": {
+                "ed25519": "gaTXEDROD0CNKI1DV3At+piHBu6H8jNnWhLX3timW/I="
+            },
+            "power": "10000"
+        },
+        {
+            "pub_key": {
+                "ed25519": "PAG7kuHoTG6YRhlspQgMEYQWRXnI5yYpokspIqqU5SQ="
+            },
+            "power": "10000"
+        },
+        {
+            "pub_key": {
+                "ed25519": "N5JHj/SZ03824k9/7oh7se9MJZLaHezW3Z40Vm26O+A="
+            },
+            "power": "10000"
+        }                
+    ],
+    "height_to_valset_update_id": [],
+    "outstanding_downtime_slashing": [],
+    "pending_consumer_packets": {
+        "list": []
+    },
+    "last_transmission_block_height": {
+        "height": "0"
+    },
+    "preCCV": false
+}
