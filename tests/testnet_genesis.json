@@ -1,5 +1,5 @@
 {
-  "genesis_time": "2023-08-31T07:24:37.839194065Z",
+  "genesis_time": "2023-10-23T07:31:27.034240273Z",
   "chain_id": "oyster-0",
   "initial_height": "1",
   "consensus_params": {
@@ -36,35 +36,35 @@
       "accounts": [
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "cosmos1pu4vcjk6g5twldtd7yg2aj5sld7k4vr9m2n45k",
+          "address": "cosmos1cj0uj0ek8suay4kham3yatdz5qact3dd3tpf3h",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "cosmos15vuygma3cq94wj3575f4zl47aekxe3kzmyjucq",
+          "address": "cosmos1fqw8e48txlwlzv4m87r93rjqynwtl3qqr3tqzz",
           "pub_key": null,
           "account_number": "1",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "cosmos1zj5jyvqjxk37eev0zspyjves9h9rzqejem5f45",
+          "address": "cosmos1mcecdcecev0mzr28vdt25059gr2tj6fycqc9gn",
           "pub_key": null,
           "account_number": "2",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "cosmos1sfcv0wytjk0fcjjufm9eyyn0hf0gzy6kfaup7x",
+          "address": "cosmos1kt2muwthvdnsvstzaf95z065eqee6d53wruny4",
           "pub_key": null,
           "account_number": "3",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "cosmos1qkxycpn5vkhqtz6vsxfen0sg5y930wzvg8krel",
+          "address": "cosmos185a657egg666srntrkh6hhm9gc7qdygkw03jal",
           "pub_key": null,
           "account_number": "4",
           "sequence": "0"
@@ -81,86 +81,58 @@
       },
       "balances": [
         {
-          "address": "cosmos1qkxycpn5vkhqtz6vsxfen0sg5y930wzvg8krel",
+          "address": "cosmos185a657egg666srntrkh6hhm9gc7qdygkw03jal",
           "coins": [
             {
-              "denom": "ustake",
-              "amount": "1000000000000"
+              "denom": "stake",
+              "amount": "100000000000000"
             }
           ]
         },
         {
-          "address": "cosmos1pu4vcjk6g5twldtd7yg2aj5sld7k4vr9m2n45k",
+          "address": "cosmos1fqw8e48txlwlzv4m87r93rjqynwtl3qqr3tqzz",
           "coins": [
             {
-              "denom": "ustake",
-              "amount": "96000000000000"
+              "denom": "stake",
+              "amount": "100000000000000"
             }
           ]
         },
         {
-          "address": "cosmos1zj5jyvqjxk37eev0zspyjves9h9rzqejem5f45",
+          "address": "cosmos1kt2muwthvdnsvstzaf95z065eqee6d53wruny4",
           "coins": [
             {
-              "denom": "ustake",
-              "amount": "1000000000000"
+              "denom": "stake",
+              "amount": "100000000000000"
             }
           ]
         },
         {
-          "address": "cosmos1sfcv0wytjk0fcjjufm9eyyn0hf0gzy6kfaup7x",
+          "address": "cosmos1cj0uj0ek8suay4kham3yatdz5qact3dd3tpf3h",
           "coins": [
             {
-              "denom": "ustake",
-              "amount": "1000000000000"
+              "denom": "stake",
+              "amount": "10000000000000000000"
             }
           ]
         },
         {
-          "address": "cosmos15vuygma3cq94wj3575f4zl47aekxe3kzmyjucq",
+          "address": "cosmos1mcecdcecev0mzr28vdt25059gr2tj6fycqc9gn",
           "coins": [
             {
-              "denom": "ustake",
-              "amount": "1000000000000"
+              "denom": "stake",
+              "amount": "100000000000000"
             }
           ]
         }
       ],
       "supply": [
         {
-          "denom": "ustake",
-          "amount": "100000000000000"
+          "denom": "stake",
+          "amount": "10000400000000000000"
         }
       ],
-      "denom_metadata": [
-        {
-          "name": "stake",
-          "description": "The native staking token of Oyster.",
-          "denom_units": [
-            {
-              "denom": "ustake",
-              "exponent": 0,
-              "aliases": [
-                "microstake"
-              ]
-            },
-            {
-              "denom": "mstake",
-              "exponent": 3,
-              "aliases": [
-                "millistake"
-              ]
-            },
-            {
-              "denom": "stake",
-              "exponent": 6
-            }
-          ],
-          "base": "ustake",
-          "display": "stake",
-          "symbol": "STAKE"
-        }
-      ],
+      "denom_metadata": [],
       "send_enabled": []
     },
     "capability": {
@@ -170,121 +142,62 @@
     "ccvconsumer": {
       "params": {
         "enabled": true,
-        "blocks_per_distribution_transmission": "1000",
+        "blocks_per_distribution_transmission": "100",
         "distribution_transmission_channel": "",
         "provider_fee_pool_addr_str": "",
-        "ccv_timeout_period": "4800s",
+        "ccv_timeout_period": "2419200s",
         "transfer_timeout_period": "3600s",
         "consumer_redistribution_fraction": "0.75",
         "historical_entries": "10000",
-        "unbonding_period": "3600s",
+        "unbonding_period": "1814400s",
         "soft_opt_out_threshold": "0.05"
       },
       "provider_client_id": "",
       "provider_channel_id": "",
       "new_chain": true,
       "provider_client_state": {
-        "chain_id": "provider",
-        "trust_level": {
-          "numerator": "1",
-          "denominator": "3"
-        },
-        "trusting_period": "2376s",
-        "unbonding_period": "3600s",
-        "max_clock_drift": "10s",
-        "frozen_height": {
-          "revision_number": "0",
-          "revision_height": "0"
-        },
-        "latest_height": {
-          "revision_number": "0",
-          "revision_height": "58"
-        },
-        "proof_specs": [
-          {
-            "leaf_spec": {
-              "hash": "SHA256",
-              "prehash_key": "NO_HASH",
-              "prehash_value": "SHA256",
-              "length": "VAR_PROTO",
-              "prefix": "AA=="
-            },
-            "inner_spec": {
-              "child_order": [
-                0,
-                1
-              ],
-              "child_size": 33,
-              "min_prefix_length": 4,
-              "max_prefix_length": 12,
-              "empty_child": null,
-              "hash": "SHA256"
-            },
-            "max_depth": 0,
-            "min_depth": 0,
-            "prehash_key_before_comparison": false
+        "sequence": "1",
+        "is_frozen": false,
+        "consensus_state": {
+          "public_key": {
+            "@type": "/cosmos.crypto.secp256k1.PubKey",
+            "key": "A1iVSz1qIIHpI1YzMBPV3YwT3H2TV7hIgImkivPpJXC/"
           },
-          {
-            "leaf_spec": {
-              "hash": "SHA256",
-              "prehash_key": "NO_HASH",
-              "prehash_value": "SHA256",
-              "length": "VAR_PROTO",
-              "prefix": "AA=="
-            },
-            "inner_spec": {
-              "child_order": [
-                0,
-                1
-              ],
-              "child_size": 32,
-              "min_prefix_length": 1,
-              "max_prefix_length": 1,
-              "empty_child": null,
-              "hash": "SHA256"
-            },
-            "max_depth": 0,
-            "min_depth": 0,
-            "prehash_key_before_comparison": false
-          }
-        ],
-        "upgrade_path": [
-          "upgrade",
-          "upgradedIBCState"
-        ],
-        "allow_update_after_expiry": false,
-        "allow_update_after_misbehaviour": false
+          "diversifier": "oct",
+          "timestamp": "1698041666697730211"
+        }
       },
       "provider_consensus_state": {
-        "timestamp": "2023-07-27T01:08:27.118886Z",
-        "root": {
-          "hash": "8E/yuIYYDvV2v4T8lPFZqujGVMCTTdjYmTiLBG57las="
+        "public_key": {
+          "@type": "/cosmos.crypto.secp256k1.PubKey",
+          "key": "A1iVSz1qIIHpI1YzMBPV3YwT3H2TV7hIgImkivPpJXC/"
         },
-        "next_validators_hash": "7A0C17F94F7F47F41568F9405555DBCE37FAE18D45FD1EE290C577B94F0BD589"
+        "diversifier": "oct",
+        "timestamp": "1698041666697730211"
       },
       "maturing_packets": [],
       "initial_val_set": [
         {
           "pub_key": {
-            "ed25519": "kpjWW+JskhJ3P/K+dqT5wmFMbwC/qe9xUGfsPNQzvMs="
+            "ed25519": "vDRusrMW7QUpKwi9EZejFIfS86XWqtMeMCWR2g44+TU="
           },
           "power": "10000"
         },
         {
           "pub_key": {
-            "ed25519": "IP8w8x8qlrEG0eiAj5JUX7OQBoXUKZPFFW/hhpFUXXo="
+            "ed25519": "gaTXEDROD0CNKI1DV3At+piHBu6H8jNnWhLX3timW/I="
           },
           "power": "10000"
         },
         {
           "pub_key": {
-            "ed25519": "vWnobzWv9c5PfhrWX2MuzRLqBS2eD4rwIy5bFzUgm4Y="
+            "ed25519": "PAG7kuHoTG6YRhlspQgMEYQWRXnI5yYpokspIqqU5SQ="
           },
           "power": "10000"
         },
         {
           "pub_key": {
-            "ed25519": "qMeQL7WN/hY+aSATeHsjj7WJJc9QXyVWyoJH2l5d6jI="
+            "ed25519": "N5JHj/SZ03824k9/7oh7se9MJZLaHezW3Z40Vm26O+A="
           },
           "power": "10000"
         }
@@ -302,7 +215,7 @@
     "consensus": null,
     "crisis": {
       "constant_fee": {
-        "denom": "ustake",
+        "denom": "stake",
         "amount": "1000"
       }
     },
@@ -326,7 +239,7 @@
       "params": {
         "min_deposit": [
           {
-            "denom": "ustake",
+            "denom": "stake",
             "amount": "10000000"
           }
         ],
@@ -389,11 +302,11 @@
     },
     "staking": {
       "params": {
-        "unbonding_time": "3600s",
+        "unbonding_time": "1814400s",
         "max_validators": 100,
         "max_entries": 7,
         "historical_entries": 10000,
-        "bond_denom": "ustake",
+        "bond_denom": "stake",
         "min_commission_rate": "0.000000000000000000"
       },
       "last_total_power": "0",
