@@ -34,6 +34,7 @@ RUN mkdir -p $DAEMON_HOME/cosmovisor/genesis/bin \
 COPY --from=builder /root/cosmos-sdk/tools/cosmovisor/cosmovisor /usr/local/bin/cosmovisor
 
 # Copy the oysterd binaries to the appropriate directories
+COPY --from=builder /root/oyster-v1/build/$DAEMON_NAME /usr/local/bin/$DAEMON_NAME
 COPY --from=builder /root/oyster-v1/build/$DAEMON_NAME $DAEMON_HOME/cosmovisor/genesis/bin/$DAEMON_NAME
 
 # Create a symbolic link for the current version
