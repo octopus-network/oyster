@@ -6,8 +6,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/server"
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
 
-	"oyster/app"
-	"oyster/cmd/oysterd/cmd"
+	"oyster/v2/app"
+	"oyster/v2/cmd/oysterd/cmd"
 )
 
 func main() {

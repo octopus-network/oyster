@@ -100,7 +100,8 @@ import (
 	ccvstaking "github.com/cosmos/interchain-security/v3/x/ccv/democracy/staking"
 	"github.com/spf13/cast"
 
-	"oyster/docs"
+	v2 "oyster/v2/app/upgrades/v2"
+	"oyster/v2/docs"
 )
 
 const (
@@ -620,6 +621,9 @@ func New(
 	app.SetBeginBlocker(app.BeginBlocker)
 	app.SetEndBlocker(app.EndBlocker)
 
+	app.setupUpgradeHandlers()
+	app.setupUpgradeStoreLoaders()
+
 	if loadLatest {
 		if err := app.LoadLatestVersion(); err != nil {
 			tmos.Exit(fmt.Sprintf("failed to load latest version: %s", err))
@@ -802,4 +806,39 @@ func (app *App) SimulationManager() *module.SimulationManager {
 // ModuleManager returns the app ModuleManager
 func (app *App) ModuleManager() *module.Manager {
 	return app.mm
+}
+
+// configure store loader that checks if version == upgradeHeight and applies store upgrades
+func (app *App) setupUpgradeStoreLoaders() {
+	upgradeInfo, err := app.UpgradeKeeper.ReadUpgradeInfoFromDisk()
+	if err != nil {
+		panic(fmt.Sprintf("failed to read upgrade info from disk %s", err))
+	}
+
+	if app.UpgradeKeeper.IsSkipHeight(upgradeInfo.Height) {
+		return
+	}
+
+	var storeUpgrades *storetypes.StoreUpgrades
+	switch upgradeInfo.Name {
+	// upgrade to v2
+	case v2.UpgradeName:
+		storeUpgrades = &storetypes.StoreUpgrades{}
+	}
+
+	if storeUpgrades != nil {
+		// configure store loader that checks if version == upgradeHeight and applies store upgrades
+		app.SetStoreLoader(upgradetypes.UpgradeStoreLoader(upgradeInfo.Height, storeUpgrades))
+	}
+}
+
+func (app *App) setupUpgradeHandlers() {
+	// upgrade to v2
+	app.UpgradeKeeper.SetUpgradeHandler(
+		v2.UpgradeName,
+		v2.CreateUpgradeHandler(
+			app.mm,
+			app.configurator,
+		),
+	)
 }

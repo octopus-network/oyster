@@ -1,4 +1,4 @@
-module oyster
+module oyster/v2
 
 go 1.20
 
