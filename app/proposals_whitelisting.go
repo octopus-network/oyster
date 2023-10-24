@@ -3,14 +3,20 @@ package app
 import (
 	"github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 	"github.com/cosmos/cosmos-sdk/x/params/types/proposal"
+	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
 	ibctransfertypes "github.com/cosmos/ibc-go/v7/modules/apps/transfer/types"
+	ibcclienttypes "github.com/cosmos/ibc-go/v7/modules/core/02-client/types"
 )
 
 func IsProposalWhitelisted(content v1beta1.Content) bool {
 	switch c := content.(type) {
 	case *proposal.ParameterChangeProposal:
 		return isLegacyParamChangeWhitelisted(c.Changes)
-
+	case *upgradetypes.SoftwareUpgradeProposal,
+		*upgradetypes.CancelSoftwareUpgradeProposal,
+		*ibcclienttypes.ClientUpdateProposal,
+		*ibcclienttypes.UpgradeProposal:
+		return true
 	default:
 		return false
 	}
@@ -43,6 +49,8 @@ var WhiteListModule = map[string]struct{}{
 	"/cosmos.staking.v1beta1.MsgUpdateParams":      {},
 	"/cosmos.distribution.v1beta1.MsgUpdateParams": {},
 	"/cosmos.mint.v1beta1.MsgUpdateParams":         {},
+	"/cosmos.upgrade.v1beta1.Msg/SoftwareUpgrade":  {},
+	"/cosmos.upgrade.v1beta1.Msg/CancelUpgrade":    {},
 }
 
 func IsModuleWhiteList(typeUrl string) bool {
