@@ -37,9 +37,9 @@ ENV DAEMON_HOME=/data
 ENV DAEMON_NAME=oysterd
 
 # Create the folder structure required for using cosmovisor
-RUN mkdir -p /root/cosmovisor/genesis/bin \
-    && mkdir -p /root/cosmovisor/upgrades/v2/bin \
-    && mkdir -p /root/cosmovisor/upgrades/v3/bin
+RUN mkdir -p cosmovisor/genesis/bin \
+    && mkdir -p cosmovisor/upgrades/v2/bin \
+    && mkdir -p cosmovisor/upgrades/v3/bin
 
 # Copy the cosmovisor binary
 COPY --from=builder /root/cosmos-sdk/tools/cosmovisor/cosmovisor /usr/local/bin/cosmovisor
