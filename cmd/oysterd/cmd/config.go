@@ -3,7 +3,7 @@ package cmd
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"oyster/v2/app"
+	"oyster/v3/app"
 )
 
 func initSDKConfig() {

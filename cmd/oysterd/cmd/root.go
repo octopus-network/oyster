@@ -35,7 +35,7 @@ import (
 
 	// this line is used by starport scaffolding # root/moduleImport
 
-	"oyster/v2/app"
+	"oyster/v3/app"
 
 	appparams "github.com/cosmos/interchain-security/v3/app/params"
 )

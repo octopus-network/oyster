@@ -28,6 +28,10 @@ echo "- Set bank.denom_metadata with the content of $DENOM_METADAT_SECTION"
 jq -s '.[0].app_state.bank.denom_metadata = .[1] | .[0]' $GENESIS $DENOM_METADAT_SECTION > $HOME_DIR/config/genesis_denom_metadata.json
 mv $HOME_DIR/config/genesis_denom_metadata.json $GENESIS
 
+# Change proposal periods to pass within a reasonable time for local testing
+sed -i 's/"max_deposit_period": "172800s"/"max_deposit_period": "60s"/g' "$GENESIS"
+sed -i 's/"voting_period": "172800s"/"voting_period": "60s"/g' "$GENESIS"
+
 echo "- Allocate genesis accounts"
 $CHAIN_BIN genesis add-genesis-account \
 "$($CHAIN_BIN keys show $KEY -a --home $HOME_DIR --keyring-backend test)" 100000000000000stake \

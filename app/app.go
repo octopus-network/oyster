@@ -100,8 +100,9 @@ import (
 	ccvstaking "github.com/cosmos/interchain-security/v3/x/ccv/democracy/staking"
 	"github.com/spf13/cast"
 
-	v2 "oyster/v2/app/upgrades/v2"
-	"oyster/v2/docs"
+	v2 "oyster/v3/app/upgrades/v2"
+	v3 "oyster/v3/app/upgrades/v3"
+	"oyster/v3/docs"
 )
 
 const (
@@ -824,8 +825,10 @@ func (app *App) setupUpgradeStoreLoaders() {
 	// upgrade to v2
 	case v2.UpgradeName:
 		storeUpgrades = &storetypes.StoreUpgrades{}
+	// upgrade to v3
+	case v3.UpgradeName:
+		storeUpgrades = &storetypes.StoreUpgrades{}
 	}
-
 	if storeUpgrades != nil {
 		// configure store loader that checks if version == upgradeHeight and applies store upgrades
 		app.SetStoreLoader(upgradetypes.UpgradeStoreLoader(upgradeInfo.Height, storeUpgrades))
@@ -837,6 +840,15 @@ func (app *App) setupUpgradeHandlers() {
 	app.UpgradeKeeper.SetUpgradeHandler(
 		v2.UpgradeName,
 		v2.CreateUpgradeHandler(
+			app.mm,
+			app.configurator,
+		),
+	)
+
+	// upgrade to v3
+	app.UpgradeKeeper.SetUpgradeHandler(
+		v3.UpgradeName,
+		v3.CreateUpgradeHandler(
 			app.mm,
 			app.configurator,
 		),
