@@ -1,89 +1,12 @@
 version: '3'
 
 services:
-  validator01:
-    container_name: validator01
-    image: "octopus-appchains/oyster"
-    ports:
-      - "26616-26617:26656-26657"
-    volumes:
-      - ./build/validatornode01:/data:Z
-    command:
-      - cosmovisor run start --home /data
-    networks:
-      localnet:
-        ipv4_address: 192.167.10.2
-
-  validator02:
-    container_name: validator02
-    image: "octopus-appchains/oyster"
-    ports:
-      - "26626-26627:26656-26657"
-    volumes:
-      - ./build/validatornode02:/data:Z
-    command:
-      - cosmovisor run start --home /data
-    networks:
-      localnet:
-        ipv4_address: 192.167.10.3
-
-  validator03:
-    container_name: validator03
-    image: "octopus-appchains/oyster"
-    ports:
-      - "26636-26637:26656-26657"
-    volumes:
-      - ./build/validatornode03:/data:Z
-    command:
-      - cosmovisor run start --home /data 
-    networks:
-      localnet:
-        ipv4_address: 192.167.10.4
-
-  validator04:
-    container_name: validator04
-    image: "octopus-appchains/oyster"
-    ports:
-      - "26646-26647:26656-26657"
-    volumes:
-      - ./build/validatornode04:/data:Z
-    command:
-      - cosmovisor run start --home /data
-    networks:
-      localnet:
-        ipv4_address: 192.167.10.5
-    
-  fullnode01:
-    container_name: fullnode01
-    image: "octopus-appchains/oyster"
+  cosmovisor:
+    container_name: cosmovisor
+    image: "us-central1-docker.pkg.dev/octopus-prod/octopus-appchains/oyster@sha256:d3cd84900f821953fc460b8ae8418532c6f76f6f777e17550ddc0d3c1075376b"
     ports:
       - "26656-26657:26656-26657"
     volumes:
-      - ./build/fullnode01:/data:Z
+      - /data:/data:Z
     command:
-      - cosmovisor run start --home /data 
-    networks:
-      localnet:
-        ipv4_address: 192.167.10.6
-
-  fullnode02:
-    container_name: fullnode02
-    image: "octopus-appchains/oyster"
-    ports:
-      - "26666-26667:26656-26657"
-    volumes:
-      - ./build/fullnode02:/data:Z
-    command:
-      - cosmovisor run start --home /data
-    networks:
-      localnet:
-        ipv4_address: 192.167.10.7
-
-networks:
-  localnet:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        -
-          subnet: 192.167.10.0/16
+      - /bin/bash -c "/data/init_and_start.sh"
