@@ -27,4 +27,4 @@ fi
 # Copy cosmovisor folder to data directory
 cp -R /root/cosmovisor $DATA_DIR/
 
-cosmovisor run start --home $DATA_DIR --rpc.laddr="0.0.0.0:26657"
+cosmovisor run start --home $DATA_DIR --rpc.laddr="tcp://0.0.0.0:26657"
