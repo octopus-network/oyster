@@ -88,48 +88,12 @@
               "amount": "100000000000000"
             }
           ]
-        },
-        {
-          "address": "cosmos1fqw8e48txlwlzv4m87r93rjqynwtl3qqr3tqzz",
-          "coins": [
-            {
-              "denom": "stake",
-              "amount": "100000000000000"
-            }
-          ]
-        },
-        {
-          "address": "cosmos1kt2muwthvdnsvstzaf95z065eqee6d53wruny4",
-          "coins": [
-            {
-              "denom": "stake",
-              "amount": "100000000000000"
-            }
-          ]
-        },
-        {
-          "address": "cosmos1cj0uj0ek8suay4kham3yatdz5qact3dd3tpf3h",
-          "coins": [
-            {
-              "denom": "stake",
-              "amount": "10000000000000000000"
-            }
-          ]
-        },
-        {
-          "address": "cosmos1mcecdcecev0mzr28vdt25059gr2tj6fycqc9gn",
-          "coins": [
-            {
-              "denom": "stake",
-              "amount": "100000000000000"
-            }
-          ]
         }
       ],
       "supply": [
         {
           "denom": "stake",
-          "amount": "10000400000000000000"
+          "amount": "100000000000000"
         }
       ],
       "denom_metadata": [],
@@ -180,24 +144,6 @@
         {
           "pub_key": {
             "ed25519": "vDRusrMW7QUpKwi9EZejFIfS86XWqtMeMCWR2g44+TU="
-          },
-          "power": "10000"
-        },
-        {
-          "pub_key": {
-            "ed25519": "gaTXEDROD0CNKI1DV3At+piHBu6H8jNnWhLX3timW/I="
-          },
-          "power": "10000"
-        },
-        {
-          "pub_key": {
-            "ed25519": "PAG7kuHoTG6YRhlspQgMEYQWRXnI5yYpokspIqqU5SQ="
-          },
-          "power": "10000"
-        },
-        {
-          "pub_key": {
-            "ed25519": "N5JHj/SZ03824k9/7oh7se9MJZLaHezW3Z40Vm26O+A="
           },
           "power": "10000"
         }
